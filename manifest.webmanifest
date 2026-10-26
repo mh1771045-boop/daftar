@@ -1,0 +1,25 @@
+{
+  "name": "دفتر — المحاسب الذكي",
+  "short_name": "دفتر",
+  "description": "محاسب ذكي بيحوّل كلامك بالعامية وصور فواتيرك لقيود يومية متوازنة وقوائم مالية، وبيشتغل على جهازك من غير نت.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "dir": "rtl",
+  "lang": "ar",
+  "theme_color": "#f4f6f8",
+  "background_color": "#f4f6f8",
+  "categories": ["finance", "business", "productivity"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "قيد جديد", "short_name": "قيد جديد", "description": "افتح المحادثة وسجّل عملية", "url": "./#chat", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "القوائم المالية", "short_name": "القوائم", "description": "قائمة الدخل والمركز المالي والتدفقات", "url": "./#statements", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "الدفتر", "short_name": "الدفتر", "description": "كل القيود والبحث فيها", "url": "./#journal", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ]
+}
