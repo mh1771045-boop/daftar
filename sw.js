@@ -1,5 +1,5 @@
 /* دفتر — service worker: offline app shell + cache-first runtime for fonts and libraries */
-const VERSION = 'daftar-shell-v1.0.0';
+const VERSION = 'daftar-shell-v1.1.0';
 const RUNTIME = 'daftar-runtime-v1';
 const SHELL = [
   './', './index.html', './manifest.webmanifest', './favicon.ico',

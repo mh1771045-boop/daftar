@@ -22,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<script>try{var p=JSON.parse(localStorage.getItem('daftar:pre')||'{}'),r=document.documentElement;if(p.palette)r.dataset.palette=p.palette;if(p.theme==='light'||p.theme==='dark')r.dataset.theme=p.theme;if(p.motion==='reduce')r.dataset.motion='reduce';if(p.fs)r.style.setProperty('--fs',p.fs);if(p.density)r.dataset.density=p.density;if(p.font)r.style.setProperty('--font','"'+p.font+'","Segoe UI",Tahoma,Arial,sans-serif');if(p.lock)r.classList.add('locked-pre');if(p.onb)r.classList.add('onboarded')}catch(e){}</script>
 <style>
 /* Layout: nav rail · persistent conversation column · workspace (desktop) — single pane + bottom tabs (phone).
    Palette: hue-biased neutrals driven by --h, one accent per theme, semantic pos/neg/warn kept apart from the accent. */
@@ -114,7 +115,7 @@ svg{flex:none}
 .chat,.work{min-width:0;min-height:0;display:flex;flex-direction:column;background:var(--bg)}
 @media (max-width:1023.98px){ .app[data-view="chat"] .work{display:none} .app:not([data-view="chat"]) .chat{display:none} }
 .tabbar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));background:var(--surface);border-top:1px solid var(--line);padding-block:4px 6px}
-.tab{display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:none;color:var(--faint);font-size:11px;font-weight:600;padding:6px 0 4px;border-radius:10px;min-width:0}
+.tab{display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:none;color:var(--faint);font-size:var(--t-2xs);font-weight:600;padding:6px 0 4px;border-radius:10px;min-width:0}
 .tab svg{width:22px;height:22px}
 .tab[aria-selected="true"]{color:var(--accent)}
 .tab[aria-selected="true"] .tab-ic{background:var(--accent-soft)}
@@ -135,8 +136,8 @@ svg{flex:none}
 @media (min-width:1024px) and (max-width:1279.98px){
   .rail{width:84px;padding-inline:10px;align-items:center}
   .rail .brand-txt,.rail .rail-label,.rail .rail-foot .credit-txt,.rail .eng-txt{display:none}
-  .rail-nav button{flex-direction:column;gap:2px;font-size:11px;padding:8px 4px;justify-content:center}
-  .rail-nav button .rl{display:block;font-size:11px}
+  .rail-nav button{flex-direction:column;gap:2px;font-size:var(--t-2xs);padding:8px 4px;justify-content:center}
+  .rail-nav button .rl{display:block;font-size:var(--t-2xs)}
 }
 .brand{display:flex;align-items:center;gap:10px;min-width:0}
 .logo{width:38px;height:38px;border-radius:11px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;box-shadow:0 6px 16px -6px color-mix(in srgb, var(--accent) 70%, transparent);flex:none}
@@ -144,7 +145,7 @@ svg{flex:none}
 .brand-txt{min-width:0}
 .brand-txt b{display:block;font-size:var(--t-lg);letter-spacing:-.01em}
 .brand-txt small{display:block;color:var(--muted);font-size:var(--t-xs);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px}
-.rail-label{font-size:11px;color:var(--faint);font-weight:600;letter-spacing:.04em;margin-bottom:-10px}
+.rail-label{font-size:var(--t-2xs);color:var(--faint);font-weight:600;letter-spacing:.04em;margin-bottom:-10px}
 .rail-nav{display:flex;flex-direction:column;gap:4px;width:100%}
 .rail-nav button{display:flex;align-items:center;gap:10px;border:0;background:none;color:var(--muted);padding:9px 10px;border-radius:10px;font-weight:600;font-size:var(--t-sm);text-align:start;width:100%}
 .rail-nav button svg{width:20px;height:20px}
@@ -204,13 +205,13 @@ input[type="date"].inp{direction:ltr;text-align:right}
 .msg.user .bubble{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);border-end-end-radius:5px}
 @media (min-width:1024px){ .msg.bot .bubble,.welcome{background:var(--raised)} }
 .msg.bot .bubble{border-start-start-radius:5px}
-.msg .meta{font-size:11px;color:var(--faint);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.msg .meta{font-size:var(--t-2xs);color:var(--faint);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .msg .thumbs{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .msg .thumbs img{width:64px;height:64px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
-.stamp{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--pos);background:var(--pos-soft);border-radius:999px;padding:2px 9px}
+.stamp{display:inline-flex;align-items:center;gap:5px;font-size:var(--t-2xs);font-weight:700;color:var(--pos);background:var(--pos-soft);border-radius:999px;padding:2px 9px}
 .stamp svg{width:12px;height:12px}
 .stamp.gone{color:var(--faint);background:var(--sunken);text-decoration:line-through}
-.eng-tag{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--muted)}
+.eng-tag{display:inline-flex;align-items:center;gap:4px;font-size:var(--t-2xs);font-weight:600;color:var(--muted)}
 .eng-tag svg{width:12px;height:12px}
 .thinking{display:inline-flex;align-items:center;gap:10px;color:var(--muted);font-size:var(--t-sm)}
 .dots{display:inline-flex;gap:4px}
@@ -238,7 +239,7 @@ input[type="date"].inp{direction:ltr;text-align:right}
 .slip-meta input{border:1px solid var(--line);background:var(--raised);border-radius:8px;padding:3px 8px;font-size:var(--t-xs);min-width:0}
 .slip-meta input[type="date"]{direction:ltr;width:136px}
 .slip-meta input.ref{width:120px}
-.slip-no{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.04em;align-self:center}
+.slip-no{font-size:var(--t-2xs);font-weight:700;color:var(--accent);letter-spacing:.04em;align-self:center}
 .why{display:flex;gap:10px;padding:10px 14px;font-size:var(--t-sm);color:var(--fg);background:var(--raised);border-bottom:1px solid var(--line)}
 .why svg{width:16px;height:16px;color:var(--accent);margin-top:3px}
 .why b{color:var(--accent);font-weight:700;margin-inline-end:4px}
@@ -246,21 +247,21 @@ input[type="date"].inp{direction:ltr;text-align:right}
 .lrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 30px;gap:4px 8px;align-items:end;padding:7px 0;border-bottom:1px dashed var(--line)}
 .lrow .lacc{grid-column:1/-1}
 .amt{display:flex;flex-direction:column;gap:2px;min-width:0}
-.amt .cap{font-size:10.5px;font-weight:700;color:var(--faint)}
-.lrow.headrow{font-size:11px;color:var(--faint);font-weight:700;padding-block:2px 0}
+.amt .cap{font-size:var(--t-3xs);font-weight:700;color:var(--faint)}
+.lrow.headrow{font-size:var(--t-2xs);color:var(--faint);font-weight:700;padding-block:2px 0}
 .lrow.headrow span:nth-child(2),.lrow.headrow span:nth-child(3){text-align:center}
 .lacc{display:flex;flex-direction:row;align-items:center;gap:6px;min-width:0}
 .lacc input{flex:1}
 .lacc .tags{flex:none;flex-wrap:nowrap}
 .lacc input{width:100%;min-width:0;border:1px solid var(--line);background:var(--raised);border-radius:8px;padding:5px 8px;font-size:var(--t-sm)}
 .lacc .tags{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
-.tsel{appearance:none;-webkit-appearance:none;border:0;border-radius:999px;padding:1px 9px;font-size:10.5px;font-weight:700;background:var(--sunken);color:var(--muted);cursor:pointer}
+.tsel{appearance:none;-webkit-appearance:none;border:0;border-radius:999px;padding:1px 9px;font-size:var(--t-3xs);font-weight:700;background:var(--sunken);color:var(--muted);cursor:pointer}
 .tsel[data-t="asset"]{color:hsl(210 70% 42%)}
 .tsel[data-t="liability"]{color:hsl(28 80% 38%)}
 .tsel[data-t="equity"]{color:hsl(270 45% 48%)}
 .tsel[data-t="revenue"]{color:var(--pos)}
 .tsel[data-t="expense"]{color:var(--neg)}
-.cf{font-size:10.5px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 7px}
+.cf{font-size:var(--t-3xs);font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 7px}
 .lamt{width:100%;min-width:0;border:1px solid var(--line);background:var(--raised);border-radius:8px;padding:5px 6px;font-size:var(--t-sm);direction:ltr;text-align:center;font-variant-numeric:tabular-nums}
 .lamt:placeholder-shown{color:var(--faint)}
 .lacc input:focus,.lamt:focus,.slip-meta input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent)}
@@ -272,7 +273,7 @@ input[type="date"].inp{direction:ltr;text-align:right}
 .totals{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 30px;gap:4px 8px;align-items:end;padding:8px 10px;margin:0;font-size:var(--t-sm);font-weight:700}
 .totals .tb{grid-column:1/-1}
 .totals .tt{display:flex;flex-direction:column;gap:0;align-items:center}
-.totals .tt small{font-size:10.5px;color:var(--faint);font-weight:700}
+.totals .tt small{font-size:var(--t-3xs);color:var(--faint);font-weight:700}
 .bal{display:inline-flex;align-items:center;gap:5px;font-size:var(--t-xs);font-weight:700;border-radius:999px;padding:2px 9px;width:max-content}
 .bal svg{width:13px;height:13px}
 .bal.ok{color:var(--pos);background:var(--pos-soft)}
@@ -307,7 +308,7 @@ input[type="date"].inp{direction:ltr;text-align:right}
 .rec-bar{display:flex;align-items:center;gap:10px;font-size:var(--t-sm);color:var(--neg);font-weight:600}
 .rec-dot{width:9px;height:9px;border-radius:50%;background:var(--neg);animation:pulse 1s infinite}
 @keyframes pulse{50%{opacity:.25}}
-.comp-hint{font-size:11px;color:var(--faint);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.comp-hint{font-size:var(--t-2xs);color:var(--faint);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .drop-on .cbox{border-style:dashed;border-color:var(--accent);background:var(--accent-soft)}
 
 /* ---------- Workspace ---------- */
@@ -341,7 +342,7 @@ input[type="date"].inp{direction:ltr;text-align:right}
 .je{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;min-width:0}
 .je.unbal{border-color:color-mix(in srgb, var(--neg) 50%, var(--line))}
 .je-h{display:flex;align-items:flex-start;gap:12px;padding:12px 14px 8px}
-.je-id{font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 7px;margin-top:2px}
+.je-id{font-size:var(--t-2xs);font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 7px;margin-top:2px}
 .je-t{flex:1;min-width:0}
 .je-t h3{font-size:var(--t-md);font-weight:600;overflow-wrap:anywhere}
 .je-t .m{font-size:var(--t-xs);color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;margin-top:2px}
@@ -349,7 +350,7 @@ input[type="date"].inp{direction:ltr;text-align:right}
 .je-t .note-q{color:var(--faint);font-style:normal;flex-basis:100%;overflow-wrap:anywhere}
 .je-b{padding:0 14px 10px}
 .tbl{width:100%;border-collapse:collapse;font-size:var(--t-sm)}
-.tbl th{font-size:11px;color:var(--faint);font-weight:700;text-align:start;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl th{font-size:var(--t-2xs);color:var(--faint);font-weight:700;text-align:start;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
 .tbl td{padding:6px 8px;border-bottom:1px solid color-mix(in srgb, var(--line) 60%, transparent);vertical-align:top}
 .tbl tr:last-child td{border-bottom:0}
 .tbl .n{text-align:left;direction:ltr;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -357,12 +358,12 @@ input[type="date"].inp{direction:ltr;text-align:right}
 .tbl td.cr-acc{padding-inline-start:26px;color:var(--muted)}
 .scroll-x{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
 .je-foot{display:flex;gap:8px;align-items:center;justify-content:flex-end;padding:8px 14px;border-top:1px solid var(--line);background:var(--raised);flex-wrap:wrap}
-.je-foot .src{margin-inline-end:auto;font-size:11px;color:var(--faint);display:inline-flex;gap:5px;align-items:center}
+.je-foot .src{margin-inline-end:auto;font-size:var(--t-2xs);color:var(--faint);display:inline-flex;gap:5px;align-items:center}
 .je-foot .src svg{width:13px;height:13px}
 .confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 14px;background:var(--neg-soft);border-top:1px solid color-mix(in srgb, var(--neg) 30%, var(--line));font-size:var(--t-sm);color:var(--neg);font-weight:600}
 .confirm .sp{flex:1}
 .more{align-self:center}
-.typechip{font-size:10.5px;font-weight:700;border-radius:999px;padding:0 7px;background:var(--sunken);color:var(--muted);margin-inline-start:6px;white-space:nowrap}
+.typechip{font-size:var(--t-3xs);font-weight:700;border-radius:999px;padding:0 7px;background:var(--sunken);color:var(--muted);margin-inline-start:6px;white-space:nowrap}
 
 /* Statements */
 .seg{display:flex;gap:4px;background:var(--sunken);border-radius:12px;padding:4px;overflow-x:auto;scrollbar-width:none;max-width:100%}
@@ -376,7 +377,7 @@ input[type="date"].inp{direction:ltr;text-align:right}
 .paper-h .per{font-size:var(--t-xs);color:var(--muted)}
 .st{width:100%;border-collapse:collapse;font-size:var(--t-sm)}
 .st td,.st th{padding:7px 6px;vertical-align:baseline}
-.st th{font-size:11px;color:var(--faint);font-weight:700;text-align:start;border-bottom:1px solid var(--line);white-space:nowrap}
+.st th{font-size:var(--t-2xs);color:var(--faint);font-weight:700;text-align:start;border-bottom:1px solid var(--line);white-space:nowrap}
 .st th.n{text-align:left}
 .st .n{text-align:left;direction:ltr;font-variant-numeric:tabular-nums;white-space:nowrap;width:1%}
 .st tr.sec td{padding-top:16px;font-weight:700;color:var(--accent);font-size:var(--t-sm)}
@@ -402,7 +403,7 @@ input[type="date"].inp{direction:ltr;text-align:right}
 @media (min-width:700px){ .ledger-top{grid-template-columns:minmax(0,320px) minmax(0,1fr);align-items:end} }
 .lsum{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .lsum div{background:var(--surface);padding:8px 10px;display:flex;flex-direction:column;gap:1px;min-width:0}
-.lsum span{font-size:11px;color:var(--faint);font-weight:600}
+.lsum span{font-size:var(--t-2xs);color:var(--faint);font-weight:600}
 .lsum b{font-size:var(--t-sm)}
 @media (max-width:520px){ .lsum{grid-template-columns:repeat(2,minmax(0,1fr))} }
 .tbl tr.open td{background:var(--raised);font-weight:600}
@@ -421,11 +422,11 @@ input[type="date"].inp{direction:ltr;text-align:right}
 .delta.up{color:var(--pos);background:var(--pos-soft)}
 .delta.down{color:var(--neg);background:var(--neg-soft)}
 .delta.flat{color:var(--muted);background:var(--sunken)}
-.kpi .d{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--faint)}
+.kpi .d{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:var(--t-2xs);color:var(--faint)}
 .kpi .split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .chart-wrap{position:relative}
 .chart{width:100%;height:auto;display:block;overflow:visible}
-.chart text{font-family:var(--font);fill:var(--faint);font-size:11px}
+.chart text{font-family:var(--font);fill:var(--faint);font-size:var(--t-2xs)}
 .tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font-size:var(--t-xs);padding:5px 9px;border-radius:8px;white-space:nowrap;transform:translate(-50%,-110%);box-shadow:var(--shadow);font-weight:600}
 .grid2{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 @media (min-width:900px){ .grid2{grid-template-columns:repeat(2,minmax(0,1fr))} }
@@ -488,9 +489,9 @@ dialog.dlg::backdrop{background:var(--scrim)}
 .ck input{accent-color:var(--accent);width:16px;height:16px}
 .summary-row{display:flex;gap:10px;flex-wrap:wrap}
 .summary-row>div{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:8px 12px;background:var(--raised)}
-.summary-row span{display:block;font-size:11px;color:var(--faint);font-weight:600}
+.summary-row span{display:block;font-size:var(--t-2xs);color:var(--faint);font-weight:600}
 .summary-row b{font-size:var(--t-md)}
-.status{font-size:11px;font-weight:700;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.status{font-size:var(--t-2xs);font-weight:700;border-radius:999px;padding:1px 8px;white-space:nowrap}
 .status.ok{color:var(--pos);background:var(--pos-soft)}
 .status.bad{color:var(--neg);background:var(--neg-soft)}
 
@@ -532,7 +533,7 @@ dialog.dlg::backdrop{background:var(--scrim)}
 .progress{height:6px;border-radius:99px;background:var(--sunken);overflow:hidden;margin-top:10px}
 .progress i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .3s}
 .ocr-prog{min-width:min(300px,100%)}
-.ocr-prog small{display:block;margin-top:8px;font-size:11px}
+.ocr-prog small{display:block;margin-top:8px;font-size:var(--t-2xs)}
 .bkban{display:flex;align-items:center;gap:8px;flex-wrap:wrap;border:1px solid color-mix(in srgb, var(--warn) 35%, var(--line));background:var(--warn-soft);color:var(--fg);border-radius:var(--r);padding:10px 12px;font-size:var(--t-sm)}
 .bkban svg{width:18px;height:18px;color:var(--warn)}
 .bkban .sp{flex:1}
@@ -583,10 +584,401 @@ dialog.dlg::backdrop{background:var(--scrim)}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
 </style>
+<style>
+/* =================== v1.1 — native feel layer =================== */
+:root{
+  --fs:1;
+  --t-3xs:calc(10.5px * var(--fs)); --t-2xs:calc(11px * var(--fs)); --t-xs:calc(12px * var(--fs)); --t-sm:calc(13.5px * var(--fs));
+  --t-md:calc(15.5px * var(--fs)); --t-lg:calc(17px * var(--fs)); --t-xl:calc(21px * var(--fs)); --t-2xl:calc(28px * var(--fs)); --t-3xl:calc(33px * var(--fs));
+  --ease-out:cubic-bezier(.22,1,.36,1);
+  --spring:linear(0, .009, .035 2.1%, .141 4.4%, .281 6.7%, .723 12.9%, .938 16.7%, 1.017, 1.077 21.4%, 1.121 24%, 1.149 26.9%, 1.159 28.9%, 1.163 31%, 1.154 34.4%, 1.129 38%, 1.051 46.3%, 1.017 51.1%, .991 56.3%, .977 61.5%, .974 66.9%, .988 81.6%, 1);
+  --spring-soft:linear(0, .006, .025 2.8%, .101 6.1%, .539 18.9%, .721 25.3%, .849 31.5%, .937 38.1%, .968 41.8%, .991 45.7%, 1.006 50.1%, 1.015 55%, 1.017 63.9%, 1.001 85.9%, 1);
+  --nav-h:58px; --tab-h:62px;
+  --glass:color-mix(in srgb, var(--bg) 74%, transparent);
+  --glass-pane:color-mix(in srgb, var(--surface) 76%, transparent);
+  --glass-strong:color-mix(in srgb, var(--surface) 84%, transparent);
+  --shadow-sheet:0 -10px 40px hsl(var(--h) 30% 10% / .2);
+  --tile-blue:#2f7cf6; --tile-green:#2fb457; --tile-orange:#ff9500; --tile-red:#ff3b30; --tile-purple:#8e5cf6;
+  --tile-teal:#12a4b9; --tile-gray:#8e8e93; --tile-indigo:#5856d6; --tile-pink:#ff2d55; --tile-yellow:#f2b300;
+  --row-h:52px;
+}
+:root[data-density="compact"]{--row-h:44px;--nav-h:52px}
+body{letter-spacing:0}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:color-mix(in srgb, var(--fg) 18%, transparent);border-radius:99px;border:3px solid transparent;background-clip:padding-box}
+.msgs,.views,.carousel,.dlg-b,.rail{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* press states (transform only) */
+.btn,.chip,.qchip,.sug,.act,.set-row,.sw,.fopt,.cbtn,.tab,.lrm,.addline,.key,.profile,.seg button,.pill{transition:transform .35s var(--spring-soft), background-color .2s, border-color .2s, color .2s, box-shadow .2s, opacity .2s}
+.btn:active,.chip:active,.qchip:active,.sug:active,.cbtn:active,.sw:active,.fopt:active,.act:active,.profile:active,.seg button:active,.pill:active{transform:scale(.96);transition-duration:.08s}
+.set-row:is(button,label,a):active{background:var(--sunken)}
+
+/* ---------- splash ---------- */
+.splash{position:fixed;inset:0;z-index:120;background:var(--bg);display:grid;place-items:center;animation:splashOut .24s ease .66s forwards;pointer-events:none}
+.splash-in{display:flex;flex-direction:column;align-items:center;gap:14px}
+.splash-tile{width:88px;height:88px;border-radius:26px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;box-shadow:0 20px 44px -16px color-mix(in srgb, var(--accent) 75%, transparent);animation:tileIn .55s var(--spring-soft) both}
+.splash-tile svg{width:48px;height:48px}
+.splash-tile path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .5s var(--ease-out) .08s forwards}
+.splash-tile path:nth-child(2){animation-delay:.22s}
+.splash-tile path:nth-child(3){animation-delay:.34s}
+.splash-word{font-size:24px;font-weight:700;opacity:0;animation:fadeUp .4s var(--ease-out) .3s forwards}
+.splash.out{opacity:0;transition:opacity .2s}
+:root[data-motion="reduce"] .splash,:root.onboarded-skip .splash{display:none}
+@keyframes splashOut{to{opacity:0;visibility:hidden}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes tileIn{from{transform:scale(.55);opacity:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}}
+@keyframes fadeOut{to{opacity:0}}
+
+/* ---------- translucent nav bars + large titles ---------- */
+.chat,.work{position:relative}
+.phead.navbar{position:absolute;top:0;inset-inline:0;z-index:8;min-height:var(--nav-h);padding-block:8px;background:transparent;border-bottom:1px solid transparent;transition:background-color .25s, border-color .25s, -webkit-backdrop-filter .25s, backdrop-filter .25s}
+.is-scrolled > .phead.navbar{background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom-color:color-mix(in srgb, var(--line) 75%, transparent)}
+@media (min-width:1024px){ .chat.is-scrolled > .phead.navbar{background:var(--glass-pane)} }
+.msgs{padding-top:calc(var(--nav-h) + 12px)}
+.chat > .banner{margin-top:var(--nav-h)}
+.chat > .banner:not([hidden]) + .msgs{padding-top:12px}
+.views{padding-top:calc(var(--nav-h) - 4px)}
+.work-head{justify-content:space-between}
+.nav-title{position:absolute;inset-inline:96px;top:50%;transform:translateY(-35%);text-align:center;font-weight:700;font-size:var(--t-md);opacity:0;transition:opacity .2s, transform .3s var(--ease-out);pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.work.is-scrolled .nav-title{opacity:1;transform:translateY(-50%)}
+.nav-back{display:inline-flex;align-items:center;gap:2px;border:0;background:none;color:var(--accent);font-weight:600;font-size:var(--t-md);padding:6px 4px;border-radius:10px;position:relative;z-index:1}
+.nav-back svg{width:22px;height:22px}
+.work-head .ptools{margin-inline-start:auto;position:relative;z-index:1}
+.ltitle{display:flex;flex-direction:column;gap:2px;padding-block:6px 4px}
+.ltitle h1{font-size:var(--t-3xl);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.ltitle .sub{color:var(--muted);font-size:var(--t-sm);font-weight:500}
+.view{padding-top:6px}
+.custom-range{display:flex;gap:8px;flex-wrap:wrap}
+.custom-range input{width:150px}
+
+/* ---------- tab bar (glass, sliding indicator) ---------- */
+.tab-ind{position:absolute;top:8px;left:0;width:56px;height:32px;border-radius:999px;background:var(--accent-soft);transition:transform .5s var(--spring-soft), width .3s;pointer-events:none;z-index:0}
+.no-anim .tab-ind,.no-anim .rail-ind{transition:none}
+.tab{position:relative;z-index:1}
+.tab[aria-selected="true"] .tab-ic{background:transparent}
+.tab:active .tab-ic{transform:scale(.86)}
+.tab-ic{transition:transform .35s var(--spring)}
+@media (max-width:1023.98px){
+  .app{grid-template-rows:minmax(0,1fr)}
+  .tabbar{position:fixed;bottom:0;inset-inline:0;z-index:30;background:var(--glass-strong);-webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);border-top:1px solid color-mix(in srgb, var(--line) 75%, transparent);transition:transform .32s var(--ease-out)}
+  .chat{padding-bottom:calc(var(--tab-h) + env(safe-area-inset-bottom, 0px))}
+  .views{padding-bottom:calc(var(--tab-h) + 32px + env(safe-area-inset-bottom, 0px))}
+  .kb-open .tabbar{transform:translateY(110%)}
+  .kb-open .chat{padding-bottom:var(--kb, 0px)}
+  .toasts{bottom:auto}
+}
+.rail-nav{position:relative}
+.rail-ind{position:absolute;top:0;inset-inline:0;height:40px;border-radius:11px;background:var(--surface);box-shadow:var(--shadow);transition:transform .5s var(--spring-soft), height .3s;pointer-events:none;z-index:0}
+.rail-nav button{position:relative;z-index:1}
+.rail-nav button[aria-selected="true"]{background:transparent;box-shadow:none}
+
+/* ---------- view transitions ---------- */
+.views{view-transition-name:views}
+::view-transition-old(views){animation:vtOut .18s var(--ease-out) both}
+::view-transition-new(views){animation:vtIn .42s var(--spring-soft) both}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}
+@keyframes vtOut{to{opacity:0;transform:translateY(-6px)}}
+@keyframes vtIn{from{opacity:0;transform:translateY(12px)}}
+.view.view-enter{animation:vtIn .42s var(--spring-soft) both}
+
+/* ---------- banner toasts ---------- */
+.toasts{top:calc(env(safe-area-inset-top, 0px) + 10px);bottom:auto;z-index:110}
+@media (min-width:1024px){ .toasts{bottom:auto} }
+.toast{background:var(--glass-strong);color:var(--fg);-webkit-backdrop-filter:saturate(180%) blur(26px);backdrop-filter:saturate(180%) blur(26px);border:1px solid color-mix(in srgb, var(--line) 70%, transparent);border-radius:20px;padding:10px 12px 10px 14px;min-width:min(340px,100%);max-width:min(460px,100%);box-shadow:0 14px 34px -12px hsl(var(--h) 30% 8% / .35);animation:toastIn .55s var(--spring-soft) both;touch-action:none;font-weight:500;gap:12px}
+.toast.err{background:var(--glass-strong);color:var(--fg)}
+.toast .t-ic{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:var(--tile-green);color:#fff;flex:none}
+.toast .t-ic svg{width:18px;height:18px}
+.toast.err .t-ic{background:var(--tile-red)}
+.toast.info .t-ic{background:var(--accent);color:var(--accent-ink)}
+.toast .t-tx{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.35}
+.toast .t-tx b{font-size:var(--t-sm);font-weight:700}
+.toast .t-tx span{font-size:var(--t-xs);color:var(--muted);overflow-wrap:anywhere}
+.toast button{color:var(--accent);text-decoration:none;font-weight:700;background:var(--accent-soft);border-radius:10px;padding:6px 12px}
+.toast.out{animation:toastOut .3s var(--ease-out) forwards}
+@keyframes toastIn{from{transform:translateY(-130%);opacity:0}}
+@keyframes toastOut{to{transform:translateY(-130%);opacity:0}}
+
+/* ---------- chat motion ---------- */
+.msg.enter{animation:bubbleIn .55s var(--spring-soft) both}
+.msg.user.enter{transform-origin:left bottom}
+.msg.bot.enter{transform-origin:right top}
+@keyframes bubbleIn{from{opacity:0;transform:translateY(12px) scale(.94)}}
+.msg.enter .lrow{animation:lineIn .5s var(--spring-soft) both}
+.msg.enter .lrow:nth-child(1){animation-delay:.1s}.msg.enter .lrow:nth-child(2){animation-delay:.16s}.msg.enter .lrow:nth-child(3){animation-delay:.22s}
+.msg.enter .lrow:nth-child(4){animation-delay:.28s}.msg.enter .lrow:nth-child(5){animation-delay:.34s}.msg.enter .lrow:nth-child(n+6){animation-delay:.4s}
+.msg.enter .qchip{animation:bubbleIn .5s var(--spring-soft) both}
+.msg.enter .qchip:nth-child(2){animation-delay:.05s}.msg.enter .qchip:nth-child(3){animation-delay:.1s}.msg.enter .qchip:nth-child(n+4){animation-delay:.15s}
+@keyframes lineIn{from{opacity:0;transform:translateX(14px)}}
+.typing .bubble{padding:12px 16px}
+.typing .dots i{width:7px;height:7px;background:var(--faint)}
+.slip [data-act="save"]{position:relative;overflow:visible}
+.slip [data-act="save"].done{background:var(--pos);border-color:var(--pos);color:#fff;pointer-events:none;animation:okPop .55s var(--spring)}
+@keyframes okPop{0%{transform:scale(.9)}100%{transform:none}}
+.burst{position:absolute;left:50%;top:50%;width:0;height:0;pointer-events:none}
+.burst i{position:absolute;left:-3px;top:-3px;width:6px;height:6px;border-radius:50%;background:var(--pos);animation:burst .6s var(--ease-out) forwards}
+.burst i:nth-child(odd){background:var(--accent);width:5px;height:5px}
+@keyframes burst{from{transform:rotate(var(--r)) translateY(0) scale(1);opacity:1}to{transform:rotate(var(--r)) translateY(-38px) scale(.2);opacity:0}}
+.slip.just-saved{box-shadow:0 0 0 2px color-mix(in srgb, var(--pos) 45%, transparent), var(--shadow);transition:box-shadow .3s}
+.slip.settle{animation:settle .45s var(--spring-soft)}
+@keyframes settle{from{transform:scale(.98);opacity:.6}}
+.welcome .illo-wrap{width:min(220px,70%);margin:-4px auto 2px}
+
+/* ---------- bottom sheets & dialogs ---------- */
+dialog.dlg[open]{animation:dlgIn .42s var(--spring-soft)}
+dialog.dlg[open]::backdrop{animation:fadeIn .28s ease}
+dialog.dlg.closing{animation:dlgOut .22s var(--ease-out) forwards}
+dialog.dlg.closing::backdrop{animation:fadeOut .22s ease forwards}
+dialog.dlg::backdrop{background:hsl(var(--h) 30% 6% / .38);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+@keyframes dlgIn{from{opacity:0;transform:scale(.93) translateY(10px)}}
+@keyframes dlgOut{to{opacity:0;transform:scale(.97)}}
+.sheet-handle{display:none;width:38px;height:5px;border-radius:99px;background:var(--line-strong);margin:8px auto 0;flex:none}
+@media (max-width:1023.98px){
+  dialog.dlg.sheet{margin:0;inset:auto 0 0 0;width:100%;max-width:100%;max-height:calc(100% - 40px - env(safe-area-inset-top, 0px));border-radius:24px 24px 0 0;border:0;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom, 0px);box-shadow:var(--shadow-sheet);background:var(--surface)}
+  dialog.dlg.sheet[open]{animation:sheetIn .5s var(--spring-soft)}
+  dialog.dlg.sheet.closing{animation:sheetOut .26s var(--ease-out) forwards}
+  dialog.dlg.sheet .sheet-handle{display:block}
+  dialog.dlg.sheet .sheet-handle,dialog.dlg.sheet .dlg-h{touch-action:none;cursor:grab}
+  dialog.dlg.sheet .dlg-h{border-bottom:0;padding-top:6px}
+  dialog.dlg.sheet .dlg-f{background:var(--surface);border-top:0;padding-bottom:16px}
+  dialog.dlg.sheet .dlg-f .btn{flex:1}
+}
+@keyframes sheetIn{from{transform:translateY(100%)}}
+@keyframes sheetOut{to{transform:translateY(100%)}}
+.menu-list{display:flex;flex-direction:column}
+.dlg-b .list{margin:0}
+
+/* ---------- lock screen ---------- */
+.lock{position:fixed;inset:0;z-index:105;background:var(--bg);display:grid;place-items:center;padding:24px;padding-top:max(24px, env(safe-area-inset-top, 0px));padding-bottom:max(24px, env(safe-area-inset-bottom, 0px));overflow:auto}
+.lock::before{content:"";position:absolute;inset:0;background:radial-gradient(110% 70% at 50% -10%, var(--accent-soft), transparent 65%);pointer-events:none}
+.lock.in{animation:fadeIn .3s ease}
+.lock.out{animation:lockOut .32s var(--ease-out) forwards}
+@keyframes lockOut{to{opacity:0;transform:scale(1.04)}}
+.lock-in{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;width:min(320px,100%);text-align:center}
+.lock-in h2{font-size:var(--t-xl);margin-top:6px}
+.lock-sub{color:var(--muted);font-size:var(--t-sm);min-height:1.2em}
+.pin-dots{display:flex;gap:16px;margin:10px 0 2px;direction:ltr}
+.pin-dots i{width:14px;height:14px;border-radius:50%;border:1.6px solid var(--fg);transition:background-color .15s, transform .3s var(--spring)}
+.pin-dots i.on{background:var(--fg);transform:scale(1.12)}
+.pin-dots.shake{animation:shake .42s}
+@keyframes shake{20%{transform:translateX(-10px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(4px)}}
+.lock-msg{color:var(--neg);font-size:var(--t-sm);min-height:1.4em;font-weight:600}
+.keypad{display:grid;grid-template-columns:repeat(3,74px);gap:16px 26px;margin-top:6px;direction:ltr}
+.key{width:74px;height:74px;border-radius:50%;border:0;background:color-mix(in srgb, var(--fg) 8%, transparent);color:var(--fg);font-size:30px;font-weight:500;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+.key:active{background:color-mix(in srgb, var(--fg) 20%, transparent);transform:scale(.94)}
+.key.ghost{background:transparent;font-size:var(--t-sm);font-weight:600}
+.key.ghost svg{width:28px;height:28px}
+.key.empty{visibility:hidden}
+.lock .linkish{border:0;background:none;color:var(--accent);font-weight:600;font-size:var(--t-sm);padding:6px}
+.locked-pre .app,.locked-pre .onb{visibility:hidden}
+.privacy-shield{position:fixed;inset:0;z-index:104;display:none;place-items:center;background:color-mix(in srgb, var(--bg) 55%, transparent);-webkit-backdrop-filter:blur(26px);backdrop-filter:blur(26px)}
+.privacy-shield .logo{width:64px;height:64px;border-radius:18px}
+.privacy-shield .logo svg{width:34px;height:34px}
+.shielded .privacy-shield{display:grid}
+
+/* ---------- avatar ---------- */
+.avatar{width:58px;height:58px;border-radius:50%;background:linear-gradient(150deg, color-mix(in srgb, var(--accent) 65%, #fff), var(--accent));color:#fff;display:grid;place-items:center;font-weight:700;font-size:24px;overflow:hidden;flex:none;box-shadow:inset 0 0 0 1px hsl(0 0% 100% / .2)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar svg{width:55%;height:55%}
+.avatar.sm{width:36px;height:36px;font-size:16px}
+.avatar.lg{width:78px;height:78px;font-size:34px}
+.avatar.xl{width:96px;height:96px;font-size:40px}
+
+/* ---------- onboarding carousel ---------- */
+.onb{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:0;padding-top:env(safe-area-inset-top, 0px);padding-bottom:env(safe-area-inset-bottom, 0px);overflow:hidden}
+.onb::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 55% at 50% 0%, var(--accent-soft), transparent 70%);pointer-events:none}
+.onb > *{position:relative;width:min(760px,100%);margin-inline:auto}
+.onb-top{display:flex;align-items:center;justify-content:space-between;padding-block:12px}
+.carousel{flex:1;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;min-height:0}
+.carousel::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding-inline:max(24px, env(safe-area-inset-left, 0px));padding-block:8px 12px;overflow-y:auto;min-width:0}
+.slide h1{font-size:clamp(26px, 7.2vw, 36px);letter-spacing:-.02em;line-height:1.25}
+.slide h1 em{font-style:normal;color:var(--accent)}
+.slide p{color:var(--muted);max-width:38ch;font-size:var(--t-md)}
+.slide.setup{justify-content:flex-start;padding-top:20px}
+.slide.setup .onb-form{width:min(460px,100%);text-align:start}
+.illo-wrap{width:min(300px,78vw);max-width:100%;aspect-ratio:13/10}
+.illo-wrap.sm{width:170px}
+.onb-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px 18px}
+.onb-foot .btn{min-width:130px;padding-block:12px;border-radius:14px}
+.dots{display:flex;gap:7px;align-items:center}
+.dots button{width:8px;height:8px;border-radius:99px;border:0;background:var(--line-strong);padding:0;transition:width .4s var(--spring-soft), background-color .2s}
+.dots button[aria-selected="true"]{width:24px;background:var(--accent)}
+.onb-form{box-shadow:none}
+
+/* illustrations */
+.illo{width:100%;height:100%;display:block;overflow:visible}
+.illo .i-card{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.illo .i-raised{fill:var(--raised);stroke:var(--line);stroke-width:1.2}
+.illo .i-soft{fill:var(--accent-soft)}
+.illo .i-acc{fill:var(--accent)}
+.illo .i-acc2{fill:var(--accent2)}
+.illo .i-line{fill:var(--line)}
+.illo .i-ink{fill:var(--accent-ink)}
+.illo .i-pos{fill:var(--pos)}
+.illo .i-pos-soft{fill:var(--pos-soft)}
+.illo .i-str{fill:none;stroke:var(--accent);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.illo .i-str-pos{fill:none;stroke:var(--pos);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.illo .i-str-ink{fill:none;stroke:var(--accent-ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.illo .i-str-mut{fill:none;stroke:var(--faint);stroke-width:2.4;stroke-linecap:round}
+.illo .pop,.illo .grow,.illo .grx,.illo .wave,.illo .beam{transform-box:fill-box}
+.illo .pop{transform-origin:center;opacity:0}
+.illo .grow{transform-origin:bottom;transform:scaleY(0)}
+.illo .grx{transform-origin:right;transform:scaleX(0)}
+.illo .draw{stroke-dasharray:1;stroke-dashoffset:1}
+.illo .beam{transform-origin:center}
+.illo .wave{transform-origin:center}
+.slide.on .illo .pop,.illo.play .pop{animation:popIn .6s var(--spring) both}
+.slide.on .illo .grow,.illo.play .grow{animation:growY .8s var(--spring-soft) both}
+.slide.on .illo .grx,.illo.play .grx{animation:growX .7s var(--spring-soft) both}
+.slide.on .illo .draw,.illo.play .draw{animation:draw 1s var(--ease-out) .5s forwards}
+.slide.on .illo .wave{animation:wave .9s ease-in-out infinite alternate}
+.slide.on .illo .beam,.illo.play .beam{animation:balance 1.4s var(--spring) .45s both}
+.illo .d1{animation-delay:.1s!important}.illo .d2{animation-delay:.28s!important}.illo .d3{animation-delay:.46s!important}.illo .d4{animation-delay:.64s!important}.illo .d5{animation-delay:.82s!important}.illo .d6{animation-delay:1s!important}
+.illo .w2{animation-delay:.15s!important}.illo .w3{animation-delay:.3s!important}.illo .w4{animation-delay:.45s!important}
+.illo.still .pop{opacity:1}.illo.still .grow,.illo.still .grx{transform:none}.illo.still .draw{stroke-dashoffset:0}
+@keyframes popIn{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:none}}
+@keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes wave{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+@keyframes balance{0%{transform:rotate(-16deg)}100%{transform:rotate(0)}}
+.empty .illo-wrap{width:190px;margin-bottom:4px}
+
+/* ---------- iOS-style settings ---------- */
+.set-root{position:relative;min-width:0}
+.set-page{display:flex;flex-direction:column;gap:24px;max-width:680px;margin-inline:auto;width:100%}
+.set-page.push-in{animation:pushIn .48s var(--spring-soft) both}
+.set-page.pop-in{animation:popIn2 .42s var(--spring-soft) both}
+@keyframes pushIn{from{transform:translateX(-30%);opacity:0}}
+@keyframes popIn2{from{transform:translateX(18%);opacity:0}}
+.profile{display:flex;align-items:center;gap:14px;background:var(--surface);border-radius:18px;padding:14px 16px;border:1px solid var(--line);text-align:start;width:100%;color:var(--fg)}
+.profile .p-tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.profile .p-tx b{font-size:var(--t-lg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.profile .p-tx small{color:var(--muted);font-size:var(--t-sm)}
+.group{display:flex;flex-direction:column;gap:7px;min-width:0}
+.group-h{font-size:var(--t-xs);color:var(--muted);padding-inline:16px;font-weight:600;letter-spacing:.02em}
+.group-f{font-size:var(--t-xs);color:var(--faint);padding-inline:16px;line-height:1.55}
+.list{background:var(--surface);border-radius:14px;border:1px solid var(--line);overflow:hidden;min-width:0}
+.list.pad{padding:6px 16px}
+.set-row{display:flex;align-items:center;gap:12px;min-height:var(--row-h);padding:8px 14px;width:100%;border:0;background:none;text-align:start;color:var(--fg);position:relative;font-size:var(--t-md);text-decoration:none;min-width:0}
+.set-row + .set-row::before,.set-row + .set-sub::before{content:"";position:absolute;top:0;inset-inline-start:56px;inset-inline-end:0;border-top:1px solid var(--line)}
+.list.noicons .set-row + .set-row::before{inset-inline-start:16px}
+.set-row:is(button,a,label[for]):hover{background:var(--raised)}
+.set-row .lbl{flex:1;min-width:0;display:flex;flex-direction:column}
+.set-row .lbl small{color:var(--muted);font-size:var(--t-xs);line-height:1.4}
+.set-row .val{color:var(--muted);font-size:var(--t-sm);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46%}
+.chev{width:16px;height:16px;color:var(--faint);flex:none}
+.set-row .ok{width:20px;height:20px;color:var(--accent);flex:none}
+.set-row.danger{color:var(--neg);justify-content:center;font-weight:600}
+.set-row.center{justify-content:center;color:var(--accent);font-weight:600}
+.set-row input.row-inp,.set-row select.row-sel{border:0;background:none;text-align:end;font-size:var(--t-md);color:var(--muted);min-width:0;flex:1;padding:6px 0;outline:none}
+.set-row select.row-sel{flex:none;max-width:60%;cursor:pointer}
+.set-row input.row-inp:focus{color:var(--fg)}
+.tile{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:#fff;flex:none}
+.tile svg{width:18px;height:18px}
+.switch{width:51px;height:31px;border-radius:99px;background:color-mix(in srgb, var(--fg) 16%, transparent);border:0;position:relative;flex:none;transition:background-color .25s;padding:0}
+.switch::after{content:"";position:absolute;top:2px;inset-inline-start:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 6px hsl(0 0% 0% / .25);transition:transform .4s var(--spring-soft)}
+.switch[aria-checked="true"]{background:var(--tile-green)}
+.switch[aria-checked="true"]::after{transform:translateX(-20px)}
+.switch[disabled]{opacity:.45}
+.seg.full{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;width:100%;overflow:visible}
+.seg.full button{text-align:center}
+.seg button[aria-checked="true"]{background:var(--surface);color:var(--fg);box-shadow:var(--shadow)}
+.fs-row{display:flex;align-items:center;gap:12px;padding:12px 16px}
+.fs-row input[type=range]{flex:1;accent-color:var(--accent);min-width:0}
+.fs-row .a1{font-size:13px;font-weight:600}.fs-row .a2{font-size:22px;font-weight:600}
+.preview{padding:14px 16px;display:flex;flex-direction:column;gap:8px;background:var(--raised)}
+.preview .bubble{align-self:flex-end;background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-size:var(--t-md)}
+.preview .pv-line{display:flex;justify-content:space-between;font-size:var(--t-sm)}
+.app-card{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:18px 16px}
+.app-card .logo{width:72px;height:72px;border-radius:20px}
+.app-card .logo svg{width:40px;height:40px}
+.app-card b{font-size:var(--t-lg)}
+.app-card small{color:var(--muted)}
+.changelog{display:flex;flex-direction:column;gap:14px}
+.changelog h3{font-size:var(--t-md)}
+.changelog ul{margin:6px 0 0;padding-inline-start:20px;display:flex;flex-direction:column;gap:6px;font-size:var(--t-sm);color:var(--fg)}
+.sum-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line)}
+.sum-strip div{background:var(--surface);padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.sum-strip span{font-size:var(--t-2xs);color:var(--faint);font-weight:600}
+.sum-strip b{font-size:var(--t-sm)}
+.typed-confirm{display:flex;flex-direction:column;gap:10px}
+
+/* ---------- journal: swipe rows ---------- */
+.je-wrap{position:relative;border-radius:var(--r);min-width:0}
+.je-actions{position:absolute;inset-block:0;left:0;display:flex;align-items:stretch;border-radius:var(--r);overflow:hidden;opacity:0;transition:opacity .2s}
+.je-wrap.swiping .je-actions,.je-wrap.open .je-actions{opacity:1}
+.je-actions button{width:78px;border:0;color:#fff;font-weight:700;font-size:var(--t-xs);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.je-actions button svg{width:20px;height:20px}
+.je-actions .a-edit{background:var(--tile-blue)}
+.je-actions .a-del{background:var(--tile-red)}
+.je{position:relative;z-index:1;transition:transform .45s var(--spring-soft), opacity .3s;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+@media (pointer:coarse){ .je{touch-action:pan-y} }
+.je-wrap.swiping .je{transition:none}
+.je-wrap.removing{animation:rowOut .32s var(--ease-out) forwards}
+@keyframes rowOut{to{opacity:0;transform:translateX(30%)}}
+.je.pressed{transform:scale(.98)}
+.je-foot .btn.sm{min-height:0}
+@media (pointer:fine){ .je-actions{display:none} }
+
+/* ---------- skeleton ---------- */
+.skel{border-radius:14px;background:linear-gradient(90deg, var(--sunken) 25%, color-mix(in srgb, var(--sunken) 40%, var(--surface)) 37%, var(--sunken) 63%);background-size:400% 100%;animation:shimmer 1.3s ease infinite}
+.skel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:720px){ .skel-grid{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@keyframes shimmer{0%{background-position:100% 50%}100%{background-position:0 50%}}
+
+/* ---------- charts & numbers ---------- */
+.cline{stroke-dasharray:1;stroke-dashoffset:0}
+.anim-on .cline{stroke-dashoffset:1;animation:draw 1.1s var(--ease-out) .1s forwards}
+.anim-on .carea{opacity:0;animation:fadeTo1 .7s ease .45s forwards}
+@keyframes fadeTo1{to{opacity:1}}
+.kpi .v .num{display:inline-block;min-width:2ch}
+
+/* ---------- visual polish ---------- */
+.card,.paper,.kpi,.je,.list,.profile,.welcome{border-color:color-mix(in srgb, var(--line) 85%, transparent)}
+.kpi{box-shadow:0 1px 1px hsl(var(--h) 30% 20% / .03)}
+.welcome{border-radius:20px}
+.slip{border-radius:18px}
+.bubble{border-radius:18px}
+.msg.user .bubble{border-end-end-radius:6px}
+.msg.bot .bubble{border-start-start-radius:6px}
+.cbox{border-radius:22px;background:var(--surface);box-shadow:0 1px 2px hsl(var(--h) 30% 20% / .05)}
+.cbtn.send{border-radius:50%}
+.composer{background:transparent;border-top:0;padding-block:6px 10px}
+@media (min-width:1024px){ .composer{background:var(--surface)} }
+.pill{min-height:30px}
+.qchip{padding:8px 16px}
+.empty h3{font-size:var(--t-lg)}
+:root[data-density="compact"] .msgs{gap:10px}
+:root[data-density="compact"] .card{padding:12px}
+:root[data-density="compact"] .kpi{padding:11px;gap:2px}
+:root[data-density="compact"] .je-h{padding:9px 12px 6px}
+:root[data-density="compact"] .slip-head{padding:9px 12px 8px}
+:root[data-density="compact"] .lrow{padding-block:4px}
+:root[data-density="compact"] .views{padding-inline:max(12px, env(safe-area-inset-left, 0px))}
+:root[data-density="compact"] .set-page{gap:18px}
+
+/* ---------- reduced motion (system or in-app) ---------- */
+:root[data-motion="reduce"] *,:root[data-motion="reduce"] *::before,:root[data-motion="reduce"] *::after{animation-duration:.001ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+@media (prefers-reduced-motion: reduce){ .splash{display:none} *{animation-delay:0s!important} }
+</style>
 
 </head>
 <body>
 
+<div class="splash" id="splash" aria-hidden="true"><div class="splash-in"><div class="splash-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M6 3.5h10.5A2.5 2.5 0 0 1 19 6v14.5H8.5A2.5 2.5 0 0 1 6 18z"/><path pathLength="1" d="M6 18a2.5 2.5 0 0 1 2.5-2.5H19"/><path pathLength="1" d="M12.5 6.5v6M10 9h5"/></svg></div><span class="splash-word">دفتر</span></div></div>
+<div class="lock" id="lock" hidden role="dialog" aria-modal="true" aria-labelledby="lockTitle">
+  <div class="lock-in">
+    <div class="avatar lg" data-avatar></div>
+    <h2 id="lockTitle">ادخل الرقم السري</h2>
+    <p class="lock-sub" id="lockSub"></p>
+    <div class="pin-dots" id="pinDots" aria-hidden="true"></div>
+    <p class="lock-msg" id="lockMsg" role="alert"></p>
+    <div class="keypad" id="keypad"></div>
+    <button type="button" class="btn ghost sm" id="lockCancel" hidden>إلغاء</button>
+  </div>
+</div>
 <div class="app" id="app" data-view="chat">
   <aside class="rail" aria-label="التنقل الرئيسي">
     <div class="brand">
@@ -603,7 +995,7 @@ dialog.dlg::backdrop{background:var(--scrim)}
   </aside>
 
   <section class="chat" id="chatPane" aria-label="المحادثة">
-    <header class="phead gx">
+    <header class="phead navbar gx" id="chatNav">
       <div class="mob-brand mob-only">
         <div class="logo" aria-hidden="true" data-ic="logo"></div>
         <div class="grow"><h1>دفتر</h1><span class="sub" id="mobBiz">محاسبة بالكلام</span></div>
@@ -629,8 +1021,9 @@ dialog.dlg::backdrop{background:var(--scrim)}
   </section>
 
   <main class="work" id="work" aria-label="مساحة العمل">
-    <header class="phead gx work-head">
-      <div class="grow"><h1 id="wTitle">التحليلات</h1><span class="sub" id="wSub"></span></div>
+    <header class="phead navbar gx work-head" id="workNav">
+      <button type="button" class="nav-back" id="navBack" hidden><span data-ic="back"></span><span id="navBackTxt">الإعدادات</span></button>
+      <span class="nav-title" id="wTitleS" aria-hidden="true"></span>
       <div class="ptools">
         <div class="period" id="periodBox">
           <label class="sr" for="period">الفترة</label>
@@ -646,11 +1039,12 @@ dialog.dlg::backdrop{background:var(--scrim)}
         </div>
       </div>
     </header>
-    <div class="custom-range gx" id="customRange" hidden style="padding-block:10px;border-bottom:1px solid var(--line);background:var(--surface)">
-      <label class="field"><span>من</span><input type="date" class="inp" id="cFrom"></label>
-      <label class="field"><span>إلى</span><input type="date" class="inp" id="cTo"></label>
-    </div>
     <div class="views gx" id="views">
+      <div class="ltitle"><h1 id="wTitle">التحليلات</h1><span class="sub" id="wSub"></span></div>
+      <div class="custom-range" id="customRange" hidden>
+        <label class="field"><span>من</span><input type="date" class="inp" id="cFrom"></label>
+        <label class="field"><span>إلى</span><input type="date" class="inp" id="cTo"></label>
+      </div>
       <section class="view" id="v-journal" aria-labelledby="wTitle">
         <div class="toolbar">
           <label class="search"><span data-ic="search"></span><span class="sr">بحث</span><input type="search" id="jSearch" placeholder="ابحث بالبيان أو الحساب أو المرجع أو رقم القيد"></label>
@@ -692,68 +1086,7 @@ dialog.dlg::backdrop{background:var(--scrim)}
         <div id="anBody" style="display:flex;flex-direction:column;gap:16px"></div>
       </section>
 
-      <section class="view" id="v-prefs" aria-labelledby="wTitle">
-        <div class="set-grid">
-          <div class="card">
-            <div class="card-h"><h2>بيانات النشاط</h2></div>
-            <div class="form2">
-              <label class="field"><span>اسم النشاط</span><input class="inp" id="sBiz" maxlength="60"></label>
-              <label class="field"><span>اسم المالك</span><input class="inp" id="sOwner" maxlength="60"></label>
-              <label class="field"><span>العملة</span><select class="inp" id="sCur"></select></label>
-              <label class="field"><span>تذكير النسخة الاحتياطية</span><select class="inp" id="sRemind"><option value="7">كل أسبوع</option><option value="30">كل شهر</option><option value="0">من غير تذكير</option></select></label>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-h"><h2>المظهر</h2></div>
-            <div style="display:flex;flex-direction:column;gap:14px">
-              <div class="field"><span>الوضع</span><div class="modes" role="radiogroup" aria-label="الوضع" id="sMode"></div></div>
-              <div class="field"><span>لون الواجهة</span><div class="swatches" role="radiogroup" aria-label="لون الواجهة" id="sPal"></div></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-h"><h2>الخط</h2></div>
-            <div class="fonts" role="radiogroup" aria-label="الخط" id="sFont"></div>
-          </div>
-          <div class="card">
-            <div class="card-h"><h2>البيانات</h2><span class="muted" id="sCount"></span></div>
-            <div class="actions-list">
-              <button type="button" class="act" id="aExcel"><span class="ai" data-ic="sheet"></span><span class="tx"><b>تصدير Excel</b><small>6 شيتات: القيود، الميزان، الدخل، المركز المالي، التدفقات، حقوق الملكية</small></span></button>
-              <button type="button" class="act" id="aReport"><span class="ai" data-ic="print"></span><span class="tx"><b>تقرير جاهز للطباعة</b><small>اختار القوائم، والتاريخ ميلادي وهجري</small></span></button>
-              <button type="button" class="act" id="aImport"><span class="ai" data-ic="upload"></span><span class="tx"><b>استيراد من Excel</b><small>بيتعرف على الأعمدة بالعربي والإنجليزي ويراجع التوازن قبل الترحيل</small></span></button>
-              <button type="button" class="act" id="aBackup"><span class="ai" data-ic="save"></span><span class="tx"><b>نسخة احتياطية JSON</b><small id="bkInfo">كل القيود والإعدادات والقواعد في ملف واحد</small></span></button>
-              <button type="button" class="act" id="aRestore"><span class="ai" data-ic="restore"></span><span class="tx"><b>استرجاع نسخة</b><small>يستبدل البيانات الحالية بعد تأكيدك</small></span></button>
-              <button type="button" class="act" id="aSample"><span class="ai" data-ic="spark"></span><span class="tx"><b>تحميل بيانات تجريبية</b><small>شهر ونص لمحل أدوات منزلية صغير</small></span></button>
-              <button type="button" class="act danger" id="aReset"><span class="ai" data-ic="trash"></span><span class="tx"><b>مسح كل البيانات</b><small>يرجّع دفتر فاضي زي أول مرة</small></span></button>
-            </div>
-            <input type="file" id="xlsInput" accept=".xlsx,.xls,.csv" hidden>
-            <input type="file" id="jsonInput" accept=".json,application/json" hidden>
-          </div>
-          <div class="card">
-            <div class="card-h"><h2>القواعد المحفوظة</h2><span class="muted" id="rCount"></span></div>
-            <p class="muted" style="font-size:var(--t-xs);margin-bottom:10px">لما تغيّر حساب في قيد مقترح أو تختار من الأسئلة، دفتر بيفتكر الكلمة دي ويستخدم نفس الحساب المرة الجاية.</p>
-            <div class="rules" id="rList"></div>
-            <form class="rule-add" id="rAdd" autocomplete="off">
-              <label class="field"><span>الكلمة</span><input class="inp" id="rKw" maxlength="30" placeholder="مثلاً: يافطة"></label>
-              <label class="field"><span>الحساب</span><input class="inp" id="rAcc" list="acctList" maxlength="60" placeholder="مصروف تسويق"></label>
-              <button class="btn" type="submit"><span data-ic="plus"></span>إضافة</button>
-            </form>
-          </div>
-          <div class="card">
-            <div class="card-h"><h2>التطبيق</h2></div>
-            <div class="actions-list">
-              <button type="button" class="act" data-install hidden><span class="ai" data-ic="download"></span><span class="tx"><b>ثبّت دفتر على جهازك</b><small>يفتح زي أي تطبيق ويشتغل من غير إنترنت</small></span></button>
-              <div class="app-status" id="appStatus"></div>
-            </div>
-          </div>
-          <div class="card" style="grid-column:1/-1">
-            <div class="card-h"><h2>عن دفتر</h2></div>
-            <div class="about">
-              <p>دفتر بيحوّل كلامك العادي وصور فواتيرك لقيود يومية متوازنة، وبيطلع منها القوائم المالية على طول. الفهم والقراءة بيحصلوا على جهازك من غير أي خدمة مدفوعة، والبيانات محفوظة على الجهاز ده بس.</p>
-              <p>تصميم وتطوير: <a href="https://wa.me/201206580045" target="_blank" rel="noopener">محمد الشيخ</a> · واتساب <span class="num" style="user-select:all">01206580045</span></p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section class="view" id="v-prefs" aria-labelledby="wTitle"><div class="set-root" id="setRoot"></div></section>
     </div>
   </main>
 
@@ -764,42 +1097,35 @@ dialog.dlg::backdrop{background:var(--scrim)}
 <dialog class="dlg" id="dlg" aria-labelledby="dlgTitle"></dialog>
 <div id="print-root"></div>
 
-<div class="onb gx" id="onb" hidden>
-  <div class="onb-card">
-    <div class="onb-l">
-      <div class="brand"><div class="logo" aria-hidden="true" data-ic="logo"></div><div class="brand-txt"><b>دفتر</b><small>محاسبة بالكلام</small></div></div>
-      <h1>احكي اللي حصل في المحل،<br><em>ودفتر يعمله قيد متوازن.</em></h1>
-      <p class="lead">اكتب أو اتكلم بالعامية، أو صوّر الفاتورة. دفتر بيفهم الكلام على جهازك، يطلع القيد المزدوج، يشرحلك ليه، ويحدّث قائمة الدخل والمركز المالي والتدفقات النقدية في نفس اللحظة.</p>
-      <form class="onb-form" id="onbForm">
+<div class="onb" id="onb" hidden>
+  <div class="onb-top gx"><div class="brand"><div class="logo" aria-hidden="true" data-ic="logo"></div><div class="brand-txt"><b>دفتر</b><small>المحاسب الذكي</small></div></div><button type="button" class="btn ghost sm" id="onbSkip">تخطي</button></div>
+  <div class="carousel" id="carousel" tabindex="-1">
+    <section class="slide" data-slide="0" aria-label="1 من 4"><div class="illo-wrap" data-illo="talk"></div><h1>احكي اللي حصل<br><em>بالعامية زي ما بتتكلم</em></h1><p>اكتب أو اتكلم: «بعت بضاعة بخمستلاف نصها كاش». دفتر بيفهم الأرقام بالكلام والتواريخ وأكتر من عملية في رسالة.</p></section>
+    <section class="slide" data-slide="1" aria-label="2 من 4"><div class="illo-wrap" data-illo="entry"></div><h1>قيد متوازن<br><em>وشرح ليه</em></h1><p>كل عملية بتتحوّل لقيد مدين ودائن متوازن، تراجعه وتعدّله وتحفظه. ولو ناقص حاجة بيسألك بزرار واحد.</p></section>
+    <section class="slide" data-slide="2" aria-label="3 من 4"><div class="illo-wrap" data-illo="reports"></div><h1>قوائمك جاهزة<br><em>في نفس اللحظة</em></h1><p>قائمة الدخل والمركز المالي والتدفقات النقدية والتحليلات بتتحدّث لوحدها، وكله على جهازك ومن غير نت.</p></section>
+    <section class="slide setup" data-slide="3" aria-label="4 من 4">
+      <h1>يلا نجهّز دفترك</h1>
+      <p>البيانات بتتحفظ على جهازك بس. تقدر تغيّر أي حاجة بعدين من الإعدادات.</p>
+      <form class="onb-form" id="onbForm" autocomplete="off">
+        <label class="field"><span>اسم النشاط</span><input class="inp" id="oBiz" maxlength="60" placeholder="محل النور للأدوات المنزلية"></label>
         <div class="form2">
-          <label class="field"><span>اسم النشاط</span><input class="inp" id="oBiz" maxlength="60" placeholder="محل النور للأدوات المنزلية"></label>
+          <label class="field"><span>اسم المالك (اختياري)</span><input class="inp" id="oOwner" maxlength="60"></label>
           <label class="field"><span>العملة</span><select class="inp" id="oCur"></select></label>
         </div>
         <div class="onb-btns">
-          <button type="button" class="btn primary" id="oSample"><span data-ic="spark"></span>تحميل بيانات تجريبية</button>
+          <button type="button" class="btn primary" id="oSample"><span data-ic="spark"></span>ابدأ ببيانات تجريبية</button>
           <button type="button" class="btn" id="oEmpty">ابدأ بدفتر فاضي</button>
         </div>
-        <p class="note" style="color:var(--faint)"><span data-ic="lock"></span><span>كل حاجة بتتحفظ على جهازك. البيانات التجريبية أمثلة لمحل وهمي، وتقدر تمسحها في أي وقت.</span></p>
       </form>
-      <div class="feat"><span><span data-ic="scale"></span>قيود متوازنة دايماً</span><span><span data-ic="image"></span>قراءة الفواتير على جهازك</span><span><span data-ic="lock"></span>يشتغل من غير نت</span><span><span data-ic="sheet"></span>تصدير Excel</span></div>
-    </div>
-    <div class="demo" aria-hidden="true">
-      <div class="msg user"><div class="bubble">بعت بضاعة بـ 3,500 نصها كاش والباقي على الحساب</div></div>
-      <div class="slip">
-        <div class="slip-head"><div class="slip-meta"><span class="slip-no">قيد مقترح</span></div><div></div><div class="desc" style="padding:0">بيع بضاعة نقداً وبالآجل</div></div>
-        <div class="why"><span data-ic="spark"></span><p><b>ليه كده؟</b>نص الفلوس دخلت الدرج، والنص التاني لسه عند العميل فاتسجل على «العملاء». الإيراد كله اتسجل لأن البيعة تمت.</p></div>
-        <div class="slip-mini">
-          <div class="row"><span class="a">من ح/ النقدية بالصندوق</span><span class="num">1,750.00</span></div>
-          <div class="row"><span class="a">من ح/ العملاء</span><span class="num">1,750.00</span></div>
-          <div class="row cr"><span class="a">إلى ح/ إيرادات المبيعات</span><span class="num">3,500.00</span></div>
-        </div>
-        <div class="slip-actions"><span class="bal ok"><span data-ic="check"></span>متوازن</span><span class="sp"></span><span class="btn primary sm">حفظ القيد</span></div>
-      </div>
-    </div>
+    </section>
   </div>
+  <div class="onb-foot gx"><div class="dots" id="onbDots" role="tablist" aria-label="الشرائح"></div><button type="button" class="btn primary" id="onbNext">التالي</button></div>
 </div>
-
 <datalist id="acctList"></datalist>
+<input type="file" id="xlsInput" accept=".xlsx,.xls,.csv" hidden>
+<input type="file" id="jsonInput" accept=".json,application/json" hidden>
+<input type="file" id="logoInput" accept="image/png,image/jpeg,image/webp" hidden>
+<div class="privacy-shield" id="shield" aria-hidden="true"><div class="logo" data-ic="logo"></div></div>
 <div class="upd" id="updBar" hidden role="status"><span data-ic="restore"></span><span>يوجد تحديث جديد لدفتر</span><button type="button" class="btn sm primary" id="updBtn">تحديث الآن</button></div>
 
 <script>
@@ -814,11 +1140,12 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': 
 const r2 = n => { const v = Math.round((+n + (n >= 0 ? 1e-9 : -1e-9)) * 100) / 100; return Object.is(v, -0) ? 0 : v; };
 const sum = (arr, f = x => x) => r2(arr.reduce((s, x) => s + (+f(x) || 0), 0));
 const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
-const nf2 = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-const nf0 = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
+let nf2 = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+let nf0 = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
 function money(n, o = {}) {
   let v = r2(n || 0); if (Math.abs(v) < 0.005) v = 0;
-  const s = (o.dec === false ? nf0 : nf2).format(Math.abs(v));
+  // Arabic thousands mark (U+066C) renders like the decimal mark in most fonts; a narrow space keeps them distinct
+  const s = (o.dec === false ? nf0 : nf2).format(Math.abs(v)).replace(/٬/g, ' ');
   if (v < 0) return o.paren ? `(${s})` : `-${s}`;
   return s;
 }
@@ -830,14 +1157,14 @@ function addDays(s, n) { const d = parseYmd(s); d.setDate(d.getDate() + n); retu
 function daysBetween(a, b) { return Math.round((parseYmd(b) - parseYmd(a)) / 864e5); }
 const today = () => ymd(new Date());
 const validDate = s => typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s) && !isNaN(parseYmd(s)) && ymd(parseYmd(s)) === s;
-const dfLong = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { day: 'numeric', month: 'long', year: 'numeric' });
-const dfShort = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { day: 'numeric', month: 'short' });
-const dfMonth = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { month: 'long', year: 'numeric' });
-const dfTime = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { hour: 'numeric', minute: '2-digit' });
+let dfLong = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { day: 'numeric', month: 'long', year: 'numeric' });
+let dfShort = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { day: 'numeric', month: 'short' });
+let dfMonth = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { month: 'long', year: 'numeric' });
+let dfTime = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { hour: 'numeric', minute: '2-digit' });
 let dfHijri = null;
 try { dfHijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura-nu-latn', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { try { dfHijri = new Intl.DateTimeFormat('ar-u-ca-islamic-nu-latn', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e2) { dfHijri = null; } }
-const fmtDate = s => dfLong.format(parseYmd(s));
-const fmtShort = s => dfShort.format(parseYmd(s));
+let fmtDate = s => dfLong.format(parseYmd(s));
+let fmtShort = s => dfShort.format(parseYmd(s));
 function toNum(v) {
   if (typeof v === 'number') return isFinite(v) ? v : 0;
   if (v == null) return 0;
@@ -1715,6 +2042,7 @@ function parseSegment(t, o, ctx) {
   const pay = (kind, creditAcc, T, paidRe, defM) => {
     const p = payment(u, cands, T, paidRe ? paidRe.test(t) : false, defM);
     if (p.need === 'rest') return Q(`تمام، الـ ${money(p.first, { dec: false })} اتدفعوا، والباقي (${money(p.total - p.first, { dec: false })}) هيبقى إزاي؟`, CH.rest, 'method');
+    if (p.need === 'method' && ctx.defMethod && (ctx.defMethod !== 'credit' || creditAcc)) { p.total = p.total || T; p.splits = [{ m: ctx.defMethod, amt: p.total }]; p.need = null; }
     if (p.need) return methodQ(kind);
     if (p.splits.some(s => s.m === 'credit') && !creditAcc) return methodQ(kind, true);
     p.splits.forEach(s => { s.acc = acctOf(s.m, creditAcc); });
@@ -2007,7 +2335,6 @@ function openDialog({ title, body, foot, onMount, wide }) {
   if (onMount) onMount(dlg);
   return dlg;
 }
-dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 
 /* =========================================================
    Chat
@@ -2154,7 +2481,7 @@ function postEntry(e) {
   S.entries.push(e); invalidate();
   return e;
 }
-function saveProposal(m, pi) {
+function saveProposal(m, pi, auto) {
   const p = m.proposals[pi];
   const raw = { ...p.draft, lines: p.draft.lines.filter(l => l.account && (toNum(l.debit) || toNum(l.credit))) };
   for (const l of raw.lines) { if (l.typeSet && !STD_TYPE.has(l.account)) S.accounts[l.account] = l.type; }
@@ -2172,9 +2499,9 @@ function saveProposal(m, pi) {
   if (added.length && removed.length) learned = learnRule(deriveKeyword(p.src), added[0]);
   else if (p.learn && p.learn.kw && finals.includes(p.learn.account)) learned = learnRule(p.learn.kw, p.learn.account);
   for (const r of S.rules) if (r.kw && ruleRe(r.kw).test(fold(p.src || '')) && finals.includes(r.account)) r.hits = (r.hits || 0) + 1;
-  save(); rerenderSlip(m, pi); refreshAll();
+  save(); refreshAll(); celebrate(m, pi);
   const nextSave = msgsEl.querySelector('.slip:not(.saved):not(.dismissed) [data-act="save"]:not([disabled])'); if (nextSave && document.activeElement === document.body) nextSave.focus({ preventScroll: true });
-  toast(learned ? `اتسجّل ${e.id} · واتعلمت إن «${learned.kw}» تبع ${learned.account}` : `اتسجّل القيد ${e.id}`, { ms: learned ? 5200 : 3200 });
+  toast(learned ? `اتسجّل ${e.id} · واتعلمت إن «${learned.kw}» تبع ${learned.account}` : (auto ? `اتحفظ تلقائي ${e.id}` : `اتسجّل القيد ${e.id}`), { ms: learned ? 5200 : 3200, title: learned ? 'اتعلمت حاجة جديدة' : 'القيد اتسجّل' });
 }
 
 /* conversation */
@@ -2191,9 +2518,9 @@ async function send(text) {
   if (imgs.length) um.thumbs = await Promise.all(imgs.map(f => makeThumb(f).catch(() => null))).then(a => a.filter(Boolean));
   S.messages.push(um);
   if (!S.messages.some(m => m.role === 'bot') && msgsEl.querySelector('.welcome')) msgsEl.innerHTML = '';
-  msgsEl.insertAdjacentHTML('beforeend', msgHTML(um)); scrollChat(); save();
+  msgsEl.insertAdjacentHTML('beforeend', msgHTML(um)); msgsEl.lastElementChild.classList.add('enter'); scrollChat(); save(); haptic('tick'); sound('send');
   if (imgs.length) await readImages(imgs, text);
-  else respond(text);
+  else { await typing(); respond(text); }
 }
 function respond(text, extraCtx) {
   let src = text, ctx = extraCtx || {}, pq = S.pendingQ, answered = null;
@@ -2203,7 +2530,7 @@ function respond(text, extraCtx) {
     if (!standalone) { src = pq.text + ' ' + text; ctx = pq.ctx || {}; answered = pq; }
     closeQuestion();
   }
-  const r = parseLocal(src, ctx);
+  const r = parseLocal(src, { ...ctx, defMethod: S.settings.defPay && S.settings.defPay !== 'ask' ? S.settings.defPay : null });
   if (answered && (answered.queue || []).length && !r.questions.length) S.pendingQ = null;
   const out = [];
   if (r.entries.length) {
@@ -2234,6 +2561,9 @@ function respond(text, extraCtx) {
   }
   save();
   msgsEl.insertAdjacentHTML('beforeend', out.map(msgHTML).join('')); fillIcons(msgsEl);
+  out.forEach(m => msgsEl.querySelector(`.msg[data-id="${m.id}"]`)?.classList.add('enter'));
+  if (out.length) sound('recv');
+  if (S.settings.confirmSave === false) setTimeout(() => out.forEach(m => (m.proposals || []).forEach((p, i) => { if (p.status === 'pending') { const t = draftTotals(p.draft); if (Math.abs(t.d - t.c) < 0.005 && t.d > 0) saveProposal(m, i, true); } })), 260);
   const firstNew = out[0] && msgsEl.querySelector(`.msg[data-id="${out[0].id}"]`);
   if (firstNew && firstNew.offsetHeight > msgsEl.clientHeight * .75) requestAnimationFrame(() => { msgsEl.scrollTop = Math.max(0, firstNew.offsetTop - msgsEl.offsetTop - 12); }); else scrollChat();
   const first = msgsEl.querySelector('.msg.bot:last-of-type .slip:not(.saved) [data-act="save"]');
@@ -2339,7 +2669,7 @@ function setupVoice() {
 }
 function startRec() {
   try {
-    rec = new SR(); rec.lang = 'ar-EG'; rec.interimResults = true; rec.continuous = true;
+    rec = new SR(); rec.lang = S.settings.voiceLang || 'ar-EG'; rec.interimResults = true; rec.continuous = true;
     const base = input.value ? input.value.trim() + ' ' : '';
     rec.onresult = ev => { let t = ''; for (const r of ev.results) t += r[0].transcript; input.value = base + t; autosize(); };
     rec.onerror = ev => { toast(ev.error === 'not-allowed' || ev.error === 'service-not-allowed' ? 'المتصفح مش سامح بالميكروفون. اسمح بيه من إعدادات الموقع.' : ev.error === 'network' ? 'التعرف على الصوت محتاج إنترنت' : ev.error === 'no-speech' ? 'مسمعتش حاجة، جرّب تاني' : 'التسجيل وقف، جرّب تاني', { type: 'err' }); };
@@ -2381,7 +2711,7 @@ function renderWork() {
 $('#period').addEventListener('change', e => { S.ui.period = e.target.value; if (S.ui.period === 'custom' && !S.ui.cFrom) { S.ui.cFrom = addDays(today(), -29); S.ui.cTo = today(); } save(); syncPeriodInputs(); renderWork(); });
 ['cFrom', 'cTo'].forEach(id => $('#' + id).addEventListener('change', e => { S.ui[id] = e.target.value; save(); renderWork(); }));
 function syncPeriodInputs() { $('#period').value = S.ui.period; $('#cFrom').value = S.ui.cFrom || ''; $('#cTo').value = S.ui.cTo || ''; }
-const emptyHTML = (icn, title, text, btn) => `<div class="empty"><div class="em-ic">${ic(icn)}</div><h3>${title}</h3><p>${text}</p>${btn || ''}</div>`;
+const emptyHTML = (icn, title, text, btn) => `<div class="empty">${emptyArt(icn)}<h3>${title}</h3><p>${text}</p>${btn || ''}</div>`;
 const goChatBtn = `<button type="button" class="btn primary" data-go="chat">${ic('chat')}سجّل أول عملية</button>`;
 
 /* ---------- journal ---------- */
@@ -2395,7 +2725,7 @@ function renderJournal() {
   if (f === 'expense') list = list.filter(e => e.lines.some(l => l.type === 'expense'));
   if (f === 'cash') list = list.filter(e => e.lines.some(l => l.is_cash));
   if (q) list = list.filter(e => akey([e.id, e.description, e.reference, e.note || '', ...e.lines.map(l => l.account)].join(' ')).includes(q));
-  $('#jCount').textContent = S.entries.length ? `${list.length} من ${S.entries.length} قيد` : '';
+  $('#jCount').textContent = S.entries.length ? dg(`${list.length} من ${S.entries.length} قيد`) : '';
   const box = $('#jList');
   if (!S.entries.length) { box.innerHTML = emptyHTML('journal', 'الدفتر لسه فاضي', 'أي عملية تحفظها من المحادثة أو تستوردها من Excel هتظهر هنا، الأحدث الأول.', goChatBtn); return; }
   if (!list.length) { box.innerHTML = emptyHTML('search', 'مفيش نتايج', 'جرّب كلمة تانية أو شيل الفلتر.'); return; }
@@ -2415,23 +2745,6 @@ function jeHTML(e) {
 $('#jSearch').addEventListener('input', () => { jLimit = 40; renderJournal(); });
 $('#jSearch').addEventListener('keydown', e => { if (e.key === 'Escape') { e.target.value = ''; renderJournal(); } });
 $('#jFilters').addEventListener('click', e => { const c = e.target.closest('[data-f]'); if (!c) return; S.ui.jf = c.dataset.f; save(); jLimit = 40; renderJournal(); });
-$('#jList').addEventListener('click', e => {
-  if (e.target.closest('#jMore')) { jLimit += 40; renderJournal(); return; }
-  const d = e.target.closest('[data-del]');
-  if (d) {
-    const art = d.closest('.je'); if (art.querySelector('.confirm')) return;
-    const foot = art.querySelector('.je-foot'); foot.hidden = true;
-    foot.insertAdjacentHTML('afterend', `<div class="confirm" role="alert">${ic('alert')}<span>حذف القيد <bdi>${esc(d.dataset.del)}</bdi> نهائياً؟ القوائم هتتحدّث.</span><span class="sp"></span><button type="button" class="btn sm danger solid" data-yes="${esc(d.dataset.del)}">احذف</button><button type="button" class="btn sm" data-no>إلغاء</button></div>`);
-    art.querySelector('[data-no]').focus(); return;
-  }
-  const no = e.target.closest('[data-no]'); if (no) { const art = no.closest('.je'); art.querySelector('.confirm').remove(); art.querySelector('.je-foot').hidden = false; art.querySelector('[data-del]').focus(); return; }
-  const yes = e.target.closest('[data-yes]');
-  if (yes) {
-    const i = S.entries.findIndex(x => x.id === yes.dataset.yes); if (i < 0) return;
-    const [gone] = S.entries.splice(i, 1); invalidate(); save(); refreshAll(); renderChatStamps();
-    toast(`اتحذف ${gone.id}`, { action: { label: 'تراجع', fn: () => { S.entries.push(gone); invalidate(); save(); refreshAll(); renderChatStamps(); } }, ms: 6500 });
-  }
-});
 function renderChatStamps() { S.messages.filter(m => m.proposals && m.proposals.some(p => p.status === 'saved')).forEach(m => rerenderMsg(m.id)); fillIcons(msgsEl); }
 
 /* ---------- statements ---------- */
@@ -2485,8 +2798,8 @@ $('#lAcc').addEventListener('change', e => { S.ui.lAcc = e.target.value; save();
 function deltaHTML(cur_, prev, goodUp = true, pp = false) {
   if (prev == null) return `<span class="delta flat">لا توجد مقارنة</span>`;
   let d, txt;
-  if (pp) { d = r2(cur_ - prev); txt = `${Math.abs(d).toFixed(1)} نقطة`; }
-  else { if (Math.abs(prev) < 0.005) return `<span class="delta flat">${Math.abs(cur_) < 0.005 ? 'بدون تغيير' : 'جديد'}</span>`; d = (cur_ - prev) / Math.abs(prev) * 100; txt = `${Math.abs(d).toFixed(1)}%`; }
+  if (pp) { d = r2(cur_ - prev); txt = `${dg(Math.abs(d).toFixed(1))} نقطة`; }
+  else { if (Math.abs(prev) < 0.005) return `<span class="delta flat">${Math.abs(cur_) < 0.005 ? 'بدون تغيير' : 'جديد'}</span>`; d = (cur_ - prev) / Math.abs(prev) * 100; txt = `${dg(Math.abs(d).toFixed(1))}%`; }
   if (Math.abs(d) < 0.05) return `<span class="delta flat">بدون تغيير</span>`;
   const up = d > 0, good = up === goodUp;
   return `<span class="delta ${good ? 'up' : 'down'}"><span aria-hidden="true">${up ? '▲' : '▼'}</span><span class="num">${txt}</span><span class="sr">${up ? 'زيادة' : 'نقص'}</span></span>`;
@@ -2510,12 +2823,12 @@ function renderAnalytics() {
   const cmp = P.pf ? (P.partial ? 'مقابل نفس المدة من الفترة اللي قبلها' : 'مقابل الفترة اللي قبلها') : '';
   box.innerHTML = `
   <div class="kpis">
-    <div class="kpi"><span class="k">${ic('trend')}الإيرادات</span><span class="v">${M(I.R, { dec: false })}<small>${esc(cur())}</small></span><span class="d">${deltaHTML(I.R, Ip && Ip.R, true)}</span></div>
-    <div class="kpi"><span class="k">${ic('trenddown')}المصروفات</span><span class="v">${M(I.expenses, { dec: false })}<small>${esc(cur())}</small></span><span class="d">${deltaHTML(I.expenses, Ip && Ip.expenses, false)}</span></div>
-    <div class="kpi"><span class="k">${ic('coins')}صافي الربح</span><span class="v ${I.N >= 0 ? 'pos' : 'neg'}">${M(I.N, { dec: false })}<small>${esc(cur())}</small></span><span class="d">${deltaHTML(I.N, Ip && Ip.N, true)}</span></div>
-    <div class="kpi"><span class="k">${ic('percent')}هامش الربح</span><span class="v ${margin == null ? '' : margin >= 0 ? 'pos' : 'neg'}">${margin == null ? '—' : `<span class="num">${margin.toFixed(1)}%</span>`}</span><span class="d">${margin == null ? '<span class="delta flat">مفيش إيرادات</span>' : deltaHTML(margin, marginP, true, true)}</span></div>
-    <div class="kpi"><span class="k">${ic('drop')}نسبة السيولة</span><span class="v">${liq == null ? '<span style="font-size:var(--t-md)">مفيش التزامات</span>' : `<span class="num">${liq.toFixed(2)}</span><small>مرة</small>`}</span><span class="d">${liq == null ? '<span class="delta flat">أصول متداولة ÷ التزامات متداولة</span>' : deltaHTML(liq, liqP, true)}</span></div>
-    <div class="kpi"><span class="k">${ic('flame')}الصرف اليومي</span><span class="v">${M(burn, { dec: false })}<small>${esc(cur())}/يوم</small></span><span class="d"><span class="delta flat">${runway == null ? 'مفيش مصروفات نقدية' : `النقدية تكفي <span class="num">${runway}</span> يوم`}</span></span></div>
+    <div class="kpi"><span class="k">${ic('trend')}الإيرادات</span><span class="v" data-count="${I.R}">${M(I.R, { dec: false })}<small>${esc(cur())}</small></span><span class="d">${deltaHTML(I.R, Ip && Ip.R, true)}</span></div>
+    <div class="kpi"><span class="k">${ic('trenddown')}المصروفات</span><span class="v" data-count="${I.expenses}">${M(I.expenses, { dec: false })}<small>${esc(cur())}</small></span><span class="d">${deltaHTML(I.expenses, Ip && Ip.expenses, false)}</span></div>
+    <div class="kpi"><span class="k">${ic('coins')}صافي الربح</span><span class="v ${I.N >= 0 ? 'pos' : 'neg'}" data-count="${I.N}">${M(I.N, { dec: false })}<small>${esc(cur())}</small></span><span class="d">${deltaHTML(I.N, Ip && Ip.N, true)}</span></div>
+    <div class="kpi"><span class="k">${ic('percent')}هامش الربح</span><span class="v ${margin == null ? '' : margin >= 0 ? 'pos' : 'neg'}">${margin == null ? '—' : `<span class="num">${dg(margin.toFixed(1))}%</span>`}</span><span class="d">${margin == null ? '<span class="delta flat">مفيش إيرادات</span>' : deltaHTML(margin, marginP, true, true)}</span></div>
+    <div class="kpi"><span class="k">${ic('drop')}نسبة السيولة</span><span class="v">${liq == null ? '<span style="font-size:var(--t-md)">مفيش التزامات</span>' : `<span class="num">${dg(liq.toFixed(2))}</span><small>مرة</small>`}</span><span class="d">${liq == null ? '<span class="delta flat">أصول متداولة ÷ التزامات متداولة</span>' : deltaHTML(liq, liqP, true)}</span></div>
+    <div class="kpi"><span class="k">${ic('flame')}الصرف اليومي</span><span class="v" data-count="${burn}">${M(burn, { dec: false })}<small>${esc(cur())}/يوم</small></span><span class="d"><span class="delta flat">${runway == null ? 'مفيش مصروفات نقدية' : `النقدية تكفي <span class="num">${dg(runway)}</span> يوم`}</span></span></div>
   </div>
   ${cmp ? `<p class="muted" style="font-size:var(--t-xs);margin-top:-6px">النسب ${cmp} · المصروفات شاملة تكلفة المبيعات · الصرف اليومي = المدفوعات التشغيلية النقدية ÷ أيام الفترة</p>` : ''}
   <div class="card"><div class="card-h"><h2>مسار النقدية (الصندوق + البنك)</h2><span class="muted">رصيد آخر كل يوم</span></div><div class="chart-wrap" id="cashChart"></div></div>
@@ -2530,7 +2843,7 @@ function barsHTML(items, cls) {
   const top = items.filter(x => x[1] > 0).slice(0, 5);
   if (!top.length) return `<p class="muted" style="font-size:var(--t-sm)">مفيش حركة في الفترة دي.</p>`;
   const max = Math.max(...top.map(x => x[1])), tot = items.reduce((s, x) => s + Math.max(0, x[1]), 0);
-  return `<div class="bars ${cls}">${top.map(([a, v]) => `<div class="bar-row"><div class="t"><span>${esc(a)}</span><span class="num">${money(v, { dec: false })} · ${(v / tot * 100).toFixed(0)}%</span></div><div class="track"><i style="width:${(v / max * 100).toFixed(1)}%"></i></div></div>`).join('')}</div>`;
+  return `<div class="bars ${cls}">${top.map(([a, v]) => `<div class="bar-row"><div class="t"><span>${esc(a)}</span><span class="num">${money(v, { dec: false })} · ${dg((v / tot * 100).toFixed(0))}%</span></div><div class="track"><i style="width:${(v / max * 100).toFixed(1)}%"></i></div></div>`).join('')}</div>`;
 }
 function watchHTML() {
   const items = [];
@@ -2563,14 +2876,15 @@ function cashChartSVG(from, to, wpx) {
   const ticks = []; for (let v = mn; v <= mx + 1e-9; v += step) ticks.push(v);
   const line = pts.map((p, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(p.v).toFixed(1)}`).join('');
   const area = `${line}L${x(n - 1).toFixed(1)},${y(Math.max(mn, 0)).toFixed(1)}L${x(0).toFixed(1)},${y(Math.max(mn, 0)).toFixed(1)}Z`;
-  const lab = []; const every = Math.max(1, Math.ceil(n / (W < 560 ? 4 : 7))); for (let i = 0; i < n; i += every) lab.push(i); if (lab[lab.length - 1] !== n - 1 && n - 1 - lab[lab.length - 1] > every / 2) lab.push(n - 1);
-  const fmtK = v => Math.abs(v) >= 1e6 ? (v / 1e6).toFixed(1).replace(/\.0$/, '') + 'M' : Math.abs(v) >= 1000 ? (v / 1000).toFixed(Math.abs(v) >= 1e4 ? 0 : 1).replace(/\.0$/, '') + 'K' : String(Math.round(v));
+  const lab = []; const every = Math.max(1, Math.ceil(n / (W < 560 ? 4 : 7))); for (let i = 0; i < n; i += every) lab.push(i); if (lab[lab.length - 1] !== n - 1 && n - 1 - lab[lab.length - 1] >= every * .8) lab.push(n - 1);
+  const fmtK = v => dg(fmtK0(v));
+  const fmtK0 = v => Math.abs(v) >= 1e6 ? (v / 1e6).toFixed(1).replace(/\.0$/, '') + 'M' : Math.abs(v) >= 1000 ? (v / 1000).toFixed(Math.abs(v) >= 1e4 ? 0 : 1).replace(/\.0$/, '') + 'K' : String(Math.round(v));
   const last = pts[n - 1];
   return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="رصيد النقدية من ${fmtDate(from)} إلى ${fmtDate(to)}، آخر رصيد ${money(last.v)}" direction="ltr" style="direction:ltr">
     <defs><linearGradient id="cg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".28"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>
     ${ticks.map(v => `<line x1="${pl}" x2="${W - pr}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="var(--line)" stroke-width="1"${v === 0 ? '' : ' stroke-dasharray="3 4"'}/><text x="${pl - 8}" y="${(y(v) + 4).toFixed(1)}" text-anchor="end">${fmtK(v)}</text>`).join('')}
     ${lab.map(i => `<text x="${x(i).toFixed(1)}" y="${H - 8}" text-anchor="middle">${esc(fmtShort(pts[i].d))}</text>`).join('')}
-    <path d="${area}" fill="url(#cg)"/><path d="${line}" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+    <path class="carea" d="${area}" fill="url(#cg)"/><path class="cline" pathLength="1" d="${line}" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
     <circle cx="${x(n - 1).toFixed(1)}" cy="${y(last.v).toFixed(1)}" r="5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2.5"/>
     <g id="hov" visibility="hidden"><line id="hovL" y1="${pt}" y2="${H - pb}" stroke="var(--faint)" stroke-dasharray="3 3"/><circle id="hovC" r="4.5" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/></g>
     <rect x="${pl}" y="${pt}" width="${W - pl - pr}" height="${H - pt - pb}" fill="transparent" id="hovR"/>
@@ -2590,48 +2904,6 @@ function bindChart() {
     tip.hidden = false; tip.textContent = `${fmtShort(p.d)} · ${money(p.v)}`; tip.style.left = (xx / W * bb.width) + 'px'; tip.style.top = (pathY / chartH * bb.height) + 'px';
   });
   r.addEventListener('pointerleave', () => { g.setAttribute('visibility', 'hidden'); tip.hidden = true; });
-}
-
-/* ---------- settings ---------- */
-function renderPrefs() {
-  const st = S.settings;
-  $('#sBiz').value = st.biz || ''; $('#sOwner').value = st.owner || ''; $('#sCur').value = st.cur; $('#sRemind').value = String(st.remind ?? 7);
-  $('#sMode').innerHTML = [['system', 'زي الجهاز'], ['light', 'فاتح'], ['dark', 'غامق']].map(([v, l]) => `<button type="button" class="chip" role="radio" aria-checked="${st.theme === v}" aria-pressed="${st.theme === v}" data-mode="${v}">${l}</button>`).join('');
-  $('#sPal').innerHTML = PALETTES.map(p => `<button type="button" class="sw" role="radio" aria-checked="${st.palette === p.id}" data-pal="${p.id}"><i style="background:${p.c}"></i><span>${p.ar}</span></button>`).join('');
-  $('#sFont').innerHTML = FONTS.map(f => `<button type="button" class="fopt" role="radio" aria-checked="${st.font === f.id}" data-font="${esc(f.id)}" style="font-family:'${f.id}',sans-serif"><b>${f.ar}</b><small>بعت بضاعة بـ 3,500 كاش</small></button>`).join('');
-  renderRules();
-  $('#sCount').textContent = `${S.entries.length} قيد`;
-  $('#bkInfo').textContent = S.lastBackup ? `آخر نسخة: ${fmtDate(ymd(new Date(S.lastBackup)))} · القيود والإعدادات والقواعد في ملف واحد` : 'لسه ما خدتش نسخة · القيود والإعدادات والقواعد في ملف واحد';
-  renderAppStatus();
-}
-function renderRules() {
-  const box = $('#rList'); $('#rCount').textContent = S.rules.length ? `${S.rules.length} قاعدة` : '';
-  box.innerHTML = S.rules.length ? S.rules.map((r, i) => `<div class="rule"><span class="kw">«${esc(r.kw)}»</span><span class="arrow" aria-hidden="true">←</span><label class="sr" for="ra-${i}">الحساب للكلمة ${esc(r.kw)}</label><input class="inp" id="ra-${i}" data-ri="${i}" list="acctList" value="${esc(r.account)}"><button type="button" class="btn ghost icon" data-rdel="${i}" aria-label="احذف قاعدة ${esc(r.kw)}">${ic('trash')}</button></div>`).join('')
-    : `<p class="muted" style="font-size:var(--t-sm);padding:6px 0">لسه مفيش قواعد. لما تغيّر حساب في قيد مقترح، دفتر هيفتكره هنا.</p>`;
-}
-$('#rList').addEventListener('change', e => { const i = e.target.dataset.ri; if (i == null) return; const a = canonicalAccount(e.target.value); if (!a) { renderRules(); return; } S.rules[+i].account = a; S.rules[+i].type = classify(a); save(); toast('القاعدة اتعدّلت'); });
-$('#rList').addEventListener('click', e => { const b = e.target.closest('[data-rdel]'); if (!b) return; const [r] = S.rules.splice(+b.dataset.rdel, 1); save(); renderRules(); fillIcons($('#rList')); toast(`اتحذفت قاعدة «${r.kw}»`, { action: { label: 'تراجع', fn: () => { S.rules.push(r); save(); renderRules(); fillIcons($('#rList')); } } }); });
-$('#rAdd').addEventListener('submit', e => { e.preventDefault(); const kw = $('#rKw').value.trim(), acc = canonicalAccount($('#rAcc').value); if (!kw || !acc) { toast('اكتب الكلمة والحساب', { type: 'err' }); return; } if (isCashAcc(acc)) { toast('القواعد للحسابات التانية غير الصندوق والبنك', { type: 'err' }); return; } learnRule(kw, acc); save(); $('#rKw').value = ''; $('#rAcc').value = ''; renderRules(); fillIcons($('#rList')); toast('القاعدة اتضافت'); });
-$('#v-prefs').addEventListener('click', e => {
-  const m = e.target.closest('[data-mode]'), p = e.target.closest('[data-pal]'), f = e.target.closest('[data-font]');
-  if (m) { S.settings.theme = m.dataset.mode; } else if (p) { S.settings.palette = p.dataset.pal; } else if (f) { S.settings.font = f.dataset.font; } else return;
-  save(); applyTheme(); renderPrefs(); fillIcons($('#v-prefs'));
-});
-$('#sBiz').addEventListener('input', e => { S.settings.biz = e.target.value.trim(); save(); updateCounts(); });
-$('#sOwner').addEventListener('input', e => { S.settings.owner = e.target.value.trim(); save(); });
-$('#sCur').addEventListener('change', e => { S.settings.cur = e.target.value; save(); refreshAll(); });
-$('#sRemind').addEventListener('change', e => { S.settings.remind = +e.target.value; save(); });
-$('#aExcel').addEventListener('click', exportExcel);
-$('#jExport').addEventListener('click', exportExcel);
-$('#aReport').addEventListener('click', reportDialog);
-$('#aImport').addEventListener('click', () => $('#xlsInput').click());
-$('#jImport').addEventListener('click', () => $('#xlsInput').click());
-$('#aBackup').addEventListener('click', backupDialog);
-$('#aRestore').addEventListener('click', () => $('#jsonInput').click());
-$('#aSample').addEventListener('click', () => confirmDialog('تحميل البيانات التجريبية', S.entries.length ? `هيتم استبدال الـ ${S.entries.length} قيد الحاليين ببيانات محل تجريبي (شهر ونص). خد نسخة احتياطية الأول لو محتاجهم.` : 'هيتم تحميل شهر ونص من العمليات لمحل أدوات منزلية وهمي عشان تشوف دفتر شغال.', 'حمّل البيانات', () => { loadSample(); toast('البيانات التجريبية اتحمّلت'); }));
-$('#aReset').addEventListener('click', () => confirmDialog('مسح كل البيانات', 'هيتمسح كل القيود والمحادثات والقواعد من الجهاز ده. مفيش رجوع، إلا لو عندك نسخة احتياطية.', 'امسح كل حاجة', () => { const keep = { ...S.settings, onboarded: false }; S = defaults(); S.settings = { ...S.settings, ...keep }; invalidate(); save(true); renderChat(); refreshAll(); showOnboarding(); }, true));
-function confirmDialog(title, text, okLabel, fn, danger) {
-  openDialog({ title, body: `<p style="font-size:var(--t-sm)">${esc(text)}</p>`, foot: `<button type="button" class="btn" data-close>إلغاء</button><button type="button" class="btn ${danger ? 'danger solid' : 'primary'}" id="cOk">${esc(okLabel)}</button>`, onMount: d => { const b = $('#cOk', d); b.focus(); b.onclick = () => { d.close(); fn(); }; } });
 }
 
 /* =========================================================
@@ -2795,12 +3067,12 @@ async function downloadTemplate() {
 /* ---------- backup & restore ---------- */
 let bkBannerHTML = '';
 function backupDialog() {
-  const data = JSON.stringify({ app: 'daftar', version: 2, exportedAt: new Date().toISOString(), settings: S.settings, entries: S.entries, accounts: S.accounts, rules: S.rules, seq: S.seq, messages: S.messages.slice(-150) });
+  const data = JSON.stringify({ app: 'daftar', version: 3, exportedAt: new Date().toISOString(), settings: { ...S.settings, lock: undefined }, entries: S.entries, accounts: S.accounts, rules: S.rules, seq: S.seq, messages: S.messages.slice(-150) });
   const name = `daftar-backup-${fileStamp()}.json`;
   const file = new File([data], name, { type: 'application/json' });
   const canShare = !!(navigator.canShare && navigator.canShare({ files: [file] }));
   const mark = () => { S.lastBackup = Date.now(); bkBannerHTML = ''; $('.bkban', msgsEl)?.remove(); save(); if (S.ui.wview === 'prefs') renderPrefs(); };
-  openDialog({ title: 'نسخة احتياطية', body: `<p style="font-size:var(--t-sm)">الملف فيه ${S.entries.length} قيد و${S.rules.length} قاعدة وكل الإعدادات (${(data.length / 1024).toFixed(0)} كيلوبايت). احفظه في مكان آمن زي درايف أو ابعته لنفسك على واتساب.</p>`,
+  openDialog({ title: 'نسخة احتياطية', body: `<p style="font-size:var(--t-sm)">الملف فيه ${dg(S.entries.length)} قيد و${dg(S.rules.length)} قاعدة وكل الإعدادات (${dg((data.length / 1024).toFixed(0))} كيلوبايت). احفظه في مكان آمن زي درايف أو ابعته لنفسك على واتساب.</p>`,
     foot: `<button type="button" class="btn" data-close>إلغاء</button>${canShare ? `<button type="button" class="btn" id="bShare">${ic('upload')}مشاركة</button>` : ''}<button type="button" class="btn primary" id="bDown">${ic('download')}تنزيل الملف</button>`,
     onMount: d => {
       $('#bDown', d).onclick = () => { downloadBlob(file, name); mark(); d.close(); toast('النسخة الاحتياطية اتحفظت'); };
@@ -2812,11 +3084,11 @@ $('#jsonInput').addEventListener('change', async e => {
   let d; try { d = JSON.parse(await f.text()); } catch (err) { toast('الملف ده مش نسخة دفتر سليمة', { type: 'err' }); return; }
   if (!d || d.app !== 'daftar' || !Array.isArray(d.entries)) { toast('الملف ده مش نسخة احتياطية من دفتر', { type: 'err' }); return; }
   confirmDialog('استرجاع نسخة', `هيتم استبدال البيانات الحالية (${S.entries.length} قيد) بـ ${d.entries.length} قيد من النسخة بتاريخ ${d.exportedAt ? fmtDate(ymd(new Date(d.exportedAt))) : 'غير معروف'}.`, 'استرجع', () => {
-    const n = hydrate({ ...defaults(), settings: { ...S.settings, ...(d.settings || {}), onboarded: true }, accounts: d.accounts || {}, rules: d.rules || [], messages: Array.isArray(d.messages) ? d.messages : [], seq: d.seq || 0, entries: [], lastBackup: Date.now(), ui: S.ui });
+    const n = hydrate({ ...defaults(), settings: { ...S.settings, ...(d.settings || {}), onboarded: true, lock: S.settings.lock }, accounts: d.accounts || {}, rules: d.rules || [], messages: Array.isArray(d.messages) ? d.messages : [], seq: d.seq || 0, entries: [], lastBackup: Date.now(), ui: S.ui });
     S = n; invalidate();
     S.entries = d.entries.filter(x => x && Array.isArray(x.lines)).map((x, i) => { const e = normalize(x, { source: x.source || 'import' }); e.id = x.id || 'JE-' + pad(i + 1, 4); e.seq = x.seq || i + 1; e.createdAt = x.createdAt || Date.now(); delete e.ok; delete e.diff; delete e.total; return e; });
     S.seq = Math.max(S.seq, ...S.entries.map(e => e.seq || 0), 0);
-    invalidate(); save(true); applyTheme(); renderChat(); refreshAll(); toast(`اترجّع ${S.entries.length} قيد`);
+    invalidate(); save(true); applyPrefs(); applyTheme(); renderChat(); refreshAll(); toast(`اترجّع ${S.entries.length} قيد`);
   });
 });
 function checkBackupReminder() {
@@ -2887,23 +3159,6 @@ function setupPWA() {
 /* =========================================================
    Onboarding + sample data
    ========================================================= */
-function showOnboarding() {
-  const o = $('#onb'); o.hidden = false;
-  $('#oBiz').value = S.settings.biz || ''; $('#oCur').value = S.settings.cur;
-  setTimeout(() => $('#oBiz').focus(), 50);
-}
-function finishOnb(sample) {
-  S.settings.biz = $('#oBiz').value.trim() || (sample ? 'محل النور للأدوات المنزلية' : 'نشاطي');
-  S.settings.cur = $('#oCur').value; S.settings.onboarded = true;
-  if (sample) loadSample(); else { save(true); renderChat(); refreshAll(); }
-  $('#onb').hidden = true;
-  try { navigator.storage?.persist?.(); } catch (e) { /* ignore */ }
-  if (isDesk()) setView(S.ui.wview || 'analytics', { noHash: true }); else setView('chat');
-  input.focus();
-}
-$('#oSample').addEventListener('click', () => finishOnb(true));
-$('#oEmpty').addEventListener('click', () => finishOnb(false));
-$('#onbForm').addEventListener('submit', e => { e.preventDefault(); finishOnb(true); });
 function loadSample() {
   const t = today(), d0 = parseYmd(t), Y = d0.getFullYear(), Mo = d0.getMonth(), D = d0.getDate();
   const day = (mo, n) => { const last = new Date(Y, Mo + mo + 1, 0).getDate(); return ymd(new Date(Y, Mo + mo, Math.min(n, last))); };
@@ -2971,7 +3226,7 @@ function loadSample() {
    Boot
    ========================================================= */
 function initStatic() {
-  $('#sCur').innerHTML = $('#oCur').innerHTML = Object.entries(CURS).map(([k, v]) => `<option value="${k}">${v.ar} (${k})</option>`).join('');
+  $('#oCur').innerHTML = Object.entries(CURS).map(([k, v]) => `<option value="${k}">${v.ar} (${k})</option>`).join('');
   initNav(); fillIcons(document); setupVoice(); syncPeriodInputs();
   addEventListener('pagehide', () => save(true));
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') save(true); });
@@ -2979,6 +3234,7 @@ function initStatic() {
 }
 async function boot() {
   await loadState();
+  applyPrefs();
   invalidate(); applyTheme(); initStatic();
   if (storageMode === 'memory') $('#storeBanner').hidden = false;
   checkBackupReminder();
@@ -2989,9 +3245,905 @@ async function boot() {
   if (h === 'chat' || h === 'new') setTimeout(() => input.focus(), 100);
   if (!S.settings.onboarded) showOnboarding();
   setupPWA();
+  afterBoot();
   document.documentElement.classList.add('ready');
   let rz = 0; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { if (S.ui.wview === 'analytics' && (isDesk() || curView !== 'chat')) renderAnalytics(); }, 200); });
 }
+
+/* =========================================================
+   v1.1 — native feel: motion, sheets, navigation, settings, lock
+   ========================================================= */
+const APP_VERSION = '1.1.0';
+const T0 = performance.now();
+Object.assign(P, {
+  chev: '<path d="M14.5 5.5 8 12l6.5 6.5"/>',
+  back: '<path d="M9.5 5.5 16 12l-6.5 6.5"/>',
+  palette: '<path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.2 0 1.8-.8 1.8-1.7 0-1.2-1-1.6-1-2.6 0-.9.7-1.6 1.7-1.6H17a3.5 3.5 0 0 0 3.5-3.5c0-4.2-3.8-7.6-8.5-7.6z"/><circle cx="7.6" cy="11" r="1.2"/><circle cx="10.5" cy="7.3" r="1.2"/><circle cx="15" cy="7.6" r="1.2"/>',
+  hash: '<path d="M5 9h15M4 15h15M10 4 8 20M16 4l-2 16"/>',
+  book: '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/>',
+  keyboard: '<rect x="2.5" y="6" width="19" height="12" rx="2.5"/><path d="M6.5 10h1M10.5 10h1M14.5 10h1M6.5 14h11"/>',
+  bell: '<path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/>',
+  database: '<ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-13M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/>',
+  hand: '<path d="M8 13V6.5a1.5 1.5 0 0 1 3 0V12M11 11.5V4.5a1.5 1.5 0 0 1 3 0V12M14 12V6.5a1.5 1.5 0 0 1 3 0V14c0 4-2.5 6.5-6 6.5-2.6 0-4-1.2-5.3-3.4L4 13.6a1.5 1.5 0 0 1 2.5-1.6L8 14"/>',
+  user: '<circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.3 7.5-5.3s6.3 1.7 7.5 5.3"/>',
+  type: '<path d="M4 7V5h11v2M9.5 5v14M7.5 19h4M14 12v-1.5h7V12M17.5 10.5V19M16 19h3"/>',
+  merge: '<path d="M7 4v5a5 5 0 0 0 5 5h5M17 4v16M14 17l3 3 3-3"/>',
+  copy: '<rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"/>',
+  shield: '<path d="M12 3 5 6v5.5c0 4.4 3 8 7 9.5 4-1.5 7-5.1 7-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/>',
+  face: '<path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M9 9.5v1M15 9.5v1M12 9.5V13h-1M9.5 16a3.5 3.5 0 0 0 5 0"/>',
+  del: '<path d="M8.5 5h11A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-11L3 12z"/><path d="m11 9.5 5 5M16 9.5l-5 5"/>',
+  sparkles: P.spark, wa: '<path d="M4.5 19.5 5.6 16A8 8 0 1 1 8.4 18.6z"/><path d="M9.2 8.6c.2-.5.6-.5.9-.4l.8 1.8c.1.3 0 .6-.2.8l-.5.6c.6 1.2 1.6 2.2 2.8 2.8l.6-.5c.2-.2.5-.3.8-.2l1.8.8c.2.3.1.7-.4.9-1 .6-2.5.5-4.6-1.3-2-1.8-2.6-3.6-2-5.3z"/>',
+  more: '<circle cx="5.5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="18.5" cy="12" r="1.4"/>',
+  speaker: '<path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>',
+  motion: '<path d="M4 12h3l2-5 4 10 2-5h5"/>',
+  gift: '<rect x="3.5" y="8.5" width="17" height="4" rx="1"/><path d="M5 12.5V20h14v-7.5M12 8.5V20M12 8.5C10 8.5 7.5 7.8 7.5 6a1.8 1.8 0 0 1 3.4-.8L12 8.5l1.1-3.3a1.8 1.8 0 0 1 3.4.8c0 1.8-2.5 2.5-4.5 2.5"/>',
+});
+const DEF_SETTINGS = { digits: 'latn', dec: 2, cal: 'greg', fs: 1, density: 'comfy', defPay: 'ask', confirmSave: true, voiceLang: 'ar-EG', haptics: true, sounds: false, motion: 'auto', nudge: true, autoLock: 5, blurBg: true, lock: null, logo: '', remind: 7 };
+const sysReduce = matchMedia('(prefers-reduced-motion: reduce)');
+const motionOK = () => !(S.settings.motion === 'reduce' || sysReduce.matches);
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+let booted = false;
+
+function applyPrefs() {
+  S.settings = { ...DEF_SETTINGS, ...S.settings };
+  const st = S.settings;
+  if (st.motion === 'reduce') root.dataset.motion = 'reduce'; else delete root.dataset.motion;
+  root.style.setProperty('--fs', String(st.fs || 1));
+  root.dataset.density = st.density === 'compact' ? 'compact' : 'comfy';
+  applyFmt(); writePre();
+}
+function writePre() {
+  const st = S.settings;
+  try { localStorage.setItem('daftar:pre', JSON.stringify({ palette: st.palette, theme: st.theme, motion: st.motion, fs: st.fs, density: st.density, font: st.font, lock: !!(st.lock && st.lock.hash), onb: !!st.onboarded })); } catch (e) { /* storage blocked */ }
+}
+function applyFmt() {
+  const st = S.settings, nu = st.digits === 'arab' ? 'arab' : 'latn', dec = Math.max(0, Math.min(3, +st.dec || 0));
+  const loc = nu === 'arab' ? 'ar-EG-u-nu-arab' : 'en-US';
+  nf2 = new Intl.NumberFormat(loc, { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  nf0 = new Intl.NumberFormat(loc, { maximumFractionDigits: 0 });
+  const mk = (l, o) => { try { return new Intl.DateTimeFormat(l, o); } catch (e) { return new Intl.DateTimeFormat('ar-EG', o); } };
+  const g = `ar-EG-u-nu-${nu}`, h = `ar-SA-u-ca-islamic-umalqura-nu-${nu}`, L = st.cal === 'hijri' ? h : g;
+  dfLong = mk(L, { day: 'numeric', month: 'long', year: 'numeric' }); dfShort = mk(L, { day: 'numeric', month: 'short' });
+  dfMonth = mk(L, { month: 'long', year: 'numeric' }); dfTime = mk(g, { hour: 'numeric', minute: '2-digit' });
+  const hij = mk(h, { day: 'numeric', month: 'long', year: 'numeric' });
+  fmtDate = st.cal === 'both' ? s => `${dfLong.format(parseYmd(s))} · ${hij.format(parseYmd(s))}` : s => dfLong.format(parseYmd(s));
+  fmtShort = s => dfShort.format(parseYmd(s));
+}
+function dg(s) { s = String(s); return S.settings.digits === 'arab' ? s.replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]).replace(/\./g, '٫') : s; }
+
+/* ---------- haptics & sounds ---------- */
+function haptic(kind) {
+  if (!S.settings.haptics || !navigator.vibrate) return;
+  try { navigator.vibrate(kind === 'success' ? [10, 40, 16] : kind === 'warn' ? [18, 50, 18] : 7); } catch (e) { /* ignore */ }
+}
+let actx = null;
+function sound(kind) {
+  if (!S.settings.sounds) return;
+  try {
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    if (actx.state === 'suspended') actx.resume();
+    const t = actx.currentTime;
+    const notes = { success: [[880, 0], [1318, .09]], send: [[740, 0]], recv: [[988, 0]], err: [[330, 0], [247, .1]], tick: [[1400, 0]] }[kind] || [[1200, 0]];
+    for (const [f, dt] of notes) {
+      const o = actx.createOscillator(), gn = actx.createGain(); o.type = 'sine'; o.frequency.value = f;
+      gn.gain.setValueAtTime(0, t + dt); gn.gain.linearRampToValueAtTime(.05, t + dt + .012); gn.gain.exponentialRampToValueAtTime(.0001, t + dt + .18);
+      o.connect(gn).connect(actx.destination); o.start(t + dt); o.stop(t + dt + .2);
+    }
+  } catch (e) { /* audio unavailable */ }
+}
+
+/* ---------- banner toasts ---------- */
+function toast(msg, o = {}) {
+  const box = $('#toasts'); if (!box) return;
+  const el = document.createElement('div');
+  el.className = 'toast' + (o.type === 'err' ? ' err' : o.type === 'info' ? ' info' : '');
+  el.innerHTML = `<span class="t-ic">${ic(o.type === 'err' ? 'alert' : o.icon || 'check')}</span><span class="t-tx"><b>${esc(o.title || (o.type === 'err' ? 'تنبيه' : 'دفتر'))}</b><span>${esc(msg)}</span></span>` + (o.action ? `<button type="button">${esc(o.action.label)}</button>` : '');
+  let gone = false;
+  const kill = () => { if (gone) return; gone = true; clearTimeout(toastT); if (!motionOK()) { el.remove(); return; } el.classList.add('out'); setTimeout(() => el.remove(), 300); };
+  if (o.action) el.querySelector('button').onclick = () => { o.action.fn(); haptic('tick'); kill(); };
+  let y0 = null;
+  el.addEventListener('pointerdown', e => { if (e.target.closest('button')) return; y0 = e.clientY; el.setPointerCapture(e.pointerId); });
+  el.addEventListener('pointermove', e => { if (y0 == null) return; const dy = Math.min(0, e.clientY - y0); el.style.transform = `translateY(${dy}px)`; el.style.opacity = String(1 + dy / 120); });
+  el.addEventListener('pointerup', e => { if (y0 == null) return; const dy = e.clientY - y0; y0 = null; if (dy < -24) kill(); else { el.style.transform = ''; el.style.opacity = ''; } });
+  box.replaceChildren(el); clearTimeout(toastT); toastT = setTimeout(kill, o.ms || 3600);
+  if (o.type === 'err') { haptic('warn'); sound('err'); }
+}
+
+/* ---------- sheets (phones) & dialogs (desktop) ---------- */
+const nativeClose = HTMLDialogElement.prototype.close;
+let closeTimer = 0;
+dlg.close = function (v) {
+  if (!dlg.open || dlg.classList.contains('closing')) return;
+  if (!motionOK()) { nativeClose.call(dlg, v); return; }
+  dlg.classList.add('closing');
+  closeTimer = setTimeout(() => { dlg.classList.remove('closing'); dlg.style.transform = ''; dlg.style.transition = ''; nativeClose.call(dlg, v); }, 240);
+};
+dlg.addEventListener('cancel', e => { e.preventDefault(); dlg.close(); });
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openDialog({ title, body, foot, onMount, wide }) {
+  clearTimeout(closeTimer); dlg.classList.remove('closing'); dlg.style.transform = ''; dlg.style.transition = '';
+  const sheet = !isDesk();
+  dlg.className = 'dlg' + (sheet ? ' sheet' : '');
+  dlg.innerHTML = `${sheet ? '<div class="sheet-handle" aria-hidden="true"></div>' : ''}<div class="dlg-h"><h2 id="dlgTitle">${esc(title)}</h2><button type="button" class="btn ghost icon" data-close aria-label="إغلاق">${ic('x')}</button></div><div class="dlg-b">${body}</div>${foot ? `<div class="dlg-f">${foot}</div>` : ''}`;
+  dlg.style.width = wide && !sheet ? 'min(860px, calc(100vw - 32px))' : '';
+  fillIcons(dlg);
+  $$('[data-close]', dlg).forEach(b => b.onclick = () => dlg.close());
+  if (!dlg.open) dlg.showModal();
+  if (sheet) bindSheetDrag();
+  haptic('tick');
+  if (onMount) onMount(dlg);
+  return dlg;
+}
+function bindSheetDrag() {
+  let y0 = null, dy = 0, t0 = 0;
+  const down = e => { if (e.target.closest('button,input,select,textarea,a')) return; y0 = e.clientY; t0 = performance.now(); dy = 0; dlg.style.transition = 'none'; try { e.currentTarget.setPointerCapture(e.pointerId); } catch (x) { /* ignore */ } };
+  const move = e => { if (y0 == null) return; dy = Math.max(0, e.clientY - y0); dlg.style.transform = `translateY(${dy}px)`; };
+  const up = () => {
+    if (y0 == null) return; y0 = null;
+    const v = dy / Math.max(1, performance.now() - t0);
+    if (dy > 110 || (v > .55 && dy > 30)) { dlg.style.transition = 'transform .22s ease-out'; dlg.style.transform = 'translateY(100%)'; haptic('tick'); setTimeout(() => { nativeClose.call(dlg); dlg.style.transform = ''; dlg.style.transition = ''; }, 220); }
+    else { dlg.style.transition = 'transform .45s var(--spring-soft)'; dlg.style.transform = ''; }
+  };
+  $$('.sheet-handle, .dlg-h', dlg).forEach(el => { el.addEventListener('pointerdown', down); el.addEventListener('pointermove', move); el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up); });
+}
+function confirmDialog(title, text, okLabel, fn, danger) {
+  openDialog({ title, body: `<p style="font-size:var(--t-sm)">${esc(text)}</p>`, foot: `<button type="button" class="btn" data-close>إلغاء</button><button type="button" class="btn ${danger ? 'danger solid' : 'primary'}" id="cOk">${esc(okLabel)}</button>`, onMount: d => { const b = $('#cOk', d); b.focus(); b.onclick = () => { d.close(); fn(); }; } });
+}
+
+/* ---------- navigation with view transitions ---------- */
+function setView(v, opts = {}) {
+  if (!VIEWS.some(x => x.id === v)) v = 'chat';
+  const cur = isDesk() ? (S.ui.wview || 'analytics') : curView;
+  if (booted && v === cur && !opts.force && (isDesk() || v === curView)) { // tap the current tab: back to top / settings root
+    if (v === 'prefs' && setStack.length > 1) { setStack = ['root']; renderWork(); }
+    const sc = v === 'chat' ? msgsEl : $('#views'); sc.scrollTo({ top: v === 'chat' ? sc.scrollHeight : 0, behavior: motionOK() ? 'smooth' : 'auto' });
+    return;
+  }
+  const from = VIEWS.findIndex(x => x.id === cur), to = VIEWS.findIndex(x => x.id === v);
+  root.classList.toggle('vt-back', to < from);
+  const run = () => setViewCore(v, opts);
+  if (booted && !opts.instant && motionOK() && document.startViewTransition) { try { document.startViewTransition(run); } catch (e) { run(); } }
+  else { run(); if (booted && motionOK()) { const el = $('.view.on'); if (el) { el.classList.remove('view-enter'); void el.offsetWidth; el.classList.add('view-enter'); } } }
+  if (booted) { haptic('tick'); sound('tick'); }
+}
+function setViewCore(v, opts) {
+  curView = v;
+  if (v !== 'chat') { S.ui.wview = v; save(); }
+  app.dataset.view = v;
+  syncNav(); renderWork();
+  if (!opts.noHash) try { history.replaceState(null, '', '#' + v); } catch (e) { /* ignore */ }
+  if (v === 'chat' && !isDesk()) scrollChat();
+  if (!opts.keepScroll) $('#views').scrollTop = 0;
+  updateScrolled();
+}
+function syncNav() {
+  const w = S.ui.wview || 'analytics';
+  $$('#railNav [data-go]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.go === w)));
+  $$('#tabbar [data-go]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.go === curView)));
+  moveInd();
+}
+function moveInd() {
+  const tb = $('#tabbar'), ind = tb && $('.tab-ind', tb), sel = $('#tabbar [aria-selected="true"]');
+  if (ind && sel && getComputedStyle(tb).display !== 'none') { const w = Math.min(60, sel.offsetWidth - 8); ind.style.width = w + 'px'; ind.style.transform = `translateX(${sel.offsetLeft + sel.offsetWidth / 2 - w / 2}px)`; }
+  const rn = $('#railNav'), ri = rn && $('.rail-ind', rn), rs = $('#railNav [aria-selected="true"]');
+  if (ri && rs && rn.offsetParent !== null) { ri.style.height = rs.offsetHeight + 'px'; ri.style.transform = `translateY(${rs.offsetTop}px)`; }
+}
+function updateScrolled() {
+  $('#work').classList.toggle('is-scrolled', $('#views').scrollTop > 30);
+  $('#chatPane').classList.toggle('is-scrolled', msgsEl.scrollTop > 4 && msgsEl.scrollHeight > msgsEl.clientHeight + 4);
+}
+$('#views').addEventListener('scroll', updateScrolled, { passive: true });
+msgsEl.addEventListener('scroll', updateScrolled, { passive: true });
+$('#navBack').addEventListener('click', () => popPage());
+addEventListener('resize', () => { moveInd(); });
+
+function renderWork() {
+  const v = S.ui.wview || 'analytics';
+  $$('.view').forEach(s => s.classList.toggle('on', s.id === 'v-' + v));
+  const def = VIEWS.find(x => x.id === v);
+  let title = def ? def.ar : '';
+  const P = curPeriod();
+  const usesPeriod = ['statements', 'ledger', 'analytics'].includes(v);
+  $('#periodBox').hidden = !usesPeriod; $('#customRange').hidden = !(usesPeriod && S.ui.period === 'custom');
+  let sub = usesPeriod ? `${P.label} · ${fmtShort(P.from)} – ${fmtShort(P.to)}` : (SUB[v] || '');
+  const pg = setStack[setStack.length - 1];
+  if (v === 'prefs' && pg !== 'root') { title = pageTitle(pg); sub = ''; }
+  $('#wTitle').textContent = title; $('#wTitleS').textContent = title; $('#wSub').textContent = sub; $('#wSub').hidden = !sub;
+  $('#navBack').hidden = !(v === 'prefs' && setStack.length > 1);
+  if (v === 'prefs' && setStack.length > 1) $('#navBackTxt').textContent = setStack.length > 2 ? pageTitle(setStack[setStack.length - 2]) : 'الإعدادات';
+  const heavy = booted && S.entries.length > 250 && ['analytics', 'statements'].includes(v);
+  const draw = () => {
+    if (v === 'journal') renderJournal();
+    else if (v === 'statements') renderStatements();
+    else if (v === 'ledger') renderLedger();
+    else if (v === 'analytics') { renderAnalytics(); animateKPIs(); }
+    else if (v === 'prefs') renderPrefs();
+    fillIcons($('#work'));
+  };
+  if (heavy) { const box = v === 'analytics' ? $('#anBody') : $('#stBody'); box.innerHTML = skeletonHTML(v); requestAnimationFrame(() => setTimeout(draw, 40)); }
+  else draw();
+}
+function skeletonHTML(v) {
+  return v === 'analytics' ? `<div class="skel-grid">${'<div class="skel" style="height:104px"></div>'.repeat(6)}</div><div class="skel" style="height:280px"></div>` : `<div class="skel" style="height:44px;width:60%;margin-inline:auto"></div><div class="skel" style="height:520px"></div>`;
+}
+function animateKPIs() {
+  const box = $('#anBody'); if (!box) return;
+  box.classList.toggle('anim-on', motionOK());
+  if (!motionOK()) return;
+  $$('[data-count]', box).forEach(el => {
+    const target = +el.dataset.count, num = el.querySelector('.num'); if (!num || !isFinite(target)) return;
+    const t0 = performance.now(), dur = 800;
+    const tick = now => { const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3); num.textContent = money(target * e, { dec: false }); if (p < 1) requestAnimationFrame(tick); };
+    num.textContent = money(0, { dec: false }); requestAnimationFrame(tick);
+  });
+}
+
+/* ---------- keyboard-aware composer ---------- */
+if (window.visualViewport) {
+  const vv = window.visualViewport;
+  const onVV = () => {
+    const kb = Math.max(0, Math.round(window.innerHeight - vv.height - vv.offsetTop));
+    root.style.setProperty('--kb', kb + 'px');
+    const open = kb > 80 && !isDesk();
+    if (open !== root.classList.contains('kb-open')) { root.classList.toggle('kb-open', open); if (open) scrollChat(); }
+  };
+  vv.addEventListener('resize', onVV); vv.addEventListener('scroll', onVV);
+}
+input.addEventListener('focus', () => { if (!isDesk()) setTimeout(scrollChat, 250); });
+
+/* ---------- chat additions ---------- */
+async function typing() {
+  if (!motionOK()) return;
+  const el = document.createElement('div'); el.className = 'msg bot enter typing';
+  el.innerHTML = '<div class="bubble"><span class="dots" role="status" aria-label="دفتر بيكتب"><i></i><i></i><i></i></span></div>';
+  msgsEl.appendChild(el); scrollChat(); await sleep(430); el.remove();
+}
+function celebrate(m, pi) {
+  const slip = msgsEl.querySelector(`.slip[data-mid="${m.id}"][data-pi="${pi}"]`);
+  haptic('success'); sound('success');
+  if (!slip || !motionOK()) { rerenderSlip(m, pi); return; }
+  const btn = slip.querySelector('[data-act="save"]');
+  if (btn) { btn.classList.add('done'); btn.innerHTML = ic('check') + 'اتحفظ' + `<span class="burst" aria-hidden="true">${Array.from({ length: 10 }, (_, i) => `<i style="--r:${i * 36}deg"></i>`).join('')}</span>`; }
+  slip.classList.add('just-saved');
+  setTimeout(() => { rerenderSlip(m, pi); msgsEl.querySelector(`.slip[data-mid="${m.id}"][data-pi="${pi}"]`)?.classList.add('settle'); }, 640);
+}
+function welcomeHTML() {
+  return `<div class="welcome">
+    <div class="illo-wrap">${illo('talk', 'play')}</div>
+    <h2>اكتب العملية زي ما بتحكيها</h2>
+    <p>دفتر بيفهم العامية المصرية والفصحى والأرقام بالكلام زي «خمستلاف» و«ألفين ونص». لو ناقص حاجة هيسألك، وبعدين يطلعلك قيد متوازن تراجعه وتحفظه.</p>
+    <div class="sugs">${SUGS.map(s => `<button type="button" class="sug" data-sug="${esc(s)}">${ic('spark')}<span>${esc(s)}</span></button>`).join('')}</div>
+    <p class="note">${ic('image')}<span>عندك فاتورة؟ دوس على أيقونة الصورة وصوّرها، دفتر هيقرا الإجمالي والضريبة والتاريخ ورقم الفاتورة على جهازك.</span></p>
+  </div>`;
+}
+msgsEl.addEventListener('click', e => {
+  const n = e.target.closest('[data-nudge]'); if (!n) return;
+  S.ui.nudgeDay = today(); save(); nudgeHTML = ''; $('.nudge', msgsEl)?.remove();
+  if (n.dataset.nudge === 'go') input.focus();
+});
+let nudgeHTML = '';
+function checkNudge() {
+  nudgeHTML = '';
+  if (!S.settings.nudge || bkBannerHTML || S.entries.length < 3) return;
+  if (S.ui.nudgeDay === today() || S.entries.some(e => e.date === today()) || new Date().getHours() < 11) return;
+  nudgeHTML = `<div class="bkban nudge" role="status">${ic('bell')}<span>سجّلت عمليات النهارده؟ اكتبها دلوقتي قبل ما تتنسي.</span><span class="sp"></span><button type="button" class="btn sm primary" data-nudge="go">سجّل دلوقتي</button><button type="button" class="btn sm ghost" data-nudge="later">بعدين</button></div>`;
+}
+const _renderChat = renderChat;
+renderChat = function () { _renderChat(); if (nudgeHTML && !msgsEl.querySelector('.nudge')) msgsEl.insertAdjacentHTML('afterbegin', nudgeHTML); paintAvatars(); };
+
+/* ---------- illustrations ---------- */
+function illo(kind, cls = '') {
+  const c = 'illo ' + cls;
+  if (kind === 'talk') return `<svg class="${c}" viewBox="0 0 260 200" aria-hidden="true">
+    <rect class="i-card" x="44" y="8" width="172" height="184" rx="28"/>
+    <g class="pop d1"><rect class="i-acc" x="62" y="30" width="112" height="30" rx="15"/><rect class="i-ink" x="78" y="41" width="58" height="8" rx="4" opacity=".85"/><rect class="i-ink" x="142" y="41" width="18" height="8" rx="4" opacity=".6"/></g>
+    <g class="pop d2"><rect class="i-raised" x="86" y="72" width="112" height="70" rx="14"/><rect class="i-soft" x="86" y="72" width="112" height="20" rx="14"/><rect class="i-acc" x="150" y="79" width="38" height="6" rx="3"/>
+      <rect class="i-line" x="140" y="100" width="48" height="7" rx="3.5"/><rect class="i-acc grx d3" x="98" y="100" width="30" height="7" rx="3.5"/>
+      <rect class="i-line" x="140" y="116" width="48" height="7" rx="3.5"/><rect class="i-acc2 grx d4" x="98" y="116" width="30" height="7" rx="3.5"/>
+      <rect class="i-pos-soft" x="98" y="129" width="40" height="8" rx="4"/></g>
+    <g class="pop d4"><circle class="i-acc" cx="80" cy="166" r="15"/><rect class="i-ink" x="76.5" y="157" width="7" height="11" rx="3.5"/><path class="i-str-ink" d="M73.5 164.5a6.5 6.5 0 0 0 13 0M80 171v3"/></g>
+    <g><rect class="i-soft wave" x="104" y="158" width="5" height="16" rx="2.5"/><rect class="i-soft wave w2" x="113" y="154" width="5" height="24" rx="2.5"/><rect class="i-soft wave w3" x="122" y="160" width="5" height="12" rx="2.5"/><rect class="i-soft wave w4" x="131" y="156" width="5" height="20" rx="2.5"/></g>
+  </svg>`;
+  if (kind === 'entry') return `<svg class="${c}" viewBox="0 0 260 200" aria-hidden="true">
+    <rect class="i-card" x="26" y="18" width="208" height="164" rx="22"/>
+    <rect class="i-soft" x="40" y="32" width="70" height="10" rx="5"/><rect class="i-line" x="150" y="32" width="70" height="10" rx="5"/>
+    <g class="pop d1"><rect class="i-line" x="140" y="58" width="80" height="10" rx="5"/><rect class="i-acc grx d2" x="40" y="58" width="54" height="10" rx="5"/></g>
+    <g class="pop d2"><rect class="i-line" x="128" y="80" width="80" height="10" rx="5"/><rect class="i-acc2 grx d3" x="40" y="80" width="54" height="10" rx="5"/></g>
+    <rect class="i-line" x="40" y="102" width="180" height="2" rx="1"/>
+    <g><rect class="i-line" x="128" y="118" width="4" height="44" rx="2"/><rect class="i-line" x="112" y="160" width="36" height="5" rx="2.5"/>
+      <g class="beam"><rect class="i-acc" x="88" y="118" width="84" height="5" rx="2.5"/><path class="i-str" d="M94 123l-10 16h20zM166 123l-10 16h20z" style="stroke-width:2"/></g></g>
+    <g class="pop d5"><circle class="i-pos" cx="206" cy="148" r="15"/><path class="i-str-ink" d="m199 148 5 5 9-10" style="stroke:#fff"/></g>
+  </svg>`;
+  return `<svg class="${c}" viewBox="0 0 260 200" aria-hidden="true">
+    <rect class="i-card" x="26" y="16" width="208" height="168" rx="22"/>
+    <rect class="i-line" x="140" y="32" width="80" height="9" rx="4.5"/><rect class="i-soft" x="40" y="32" width="44" height="9" rx="4.5"/>
+    <rect class="i-line" x="40" y="160" width="180" height="2" rx="1"/>
+    <rect class="i-soft grow d1" x="48" y="112" width="22" height="48" rx="6"/><rect class="i-acc grow d2" x="82" y="96" width="22" height="64" rx="6"/>
+    <rect class="i-soft grow d3" x="116" y="104" width="22" height="56" rx="6"/><rect class="i-acc grow d4" x="150" y="76" width="22" height="84" rx="6"/><rect class="i-acc2 grow d5" x="184" y="62" width="22" height="98" rx="6"/>
+    <path class="i-str draw" pathLength="1" d="M59 96 L93 80 L127 88 L161 60 L195 46"/>
+    <g class="pop d6"><circle class="i-acc" cx="195" cy="46" r="7"/><circle class="i-ink" cx="195" cy="46" r="3"/></g>
+  </svg>`;
+}
+function emptyArt(icn) {
+  const k = { journal: 'entry', ledger: 'entry', statements: 'reports', analytics: 'reports', chat: 'talk' }[icn];
+  return k ? `<div class="illo-wrap">${illo(k, 'play')}</div>` : `<div class="em-ic">${ic(icn)}</div>`;
+}
+
+/* ---------- avatar ---------- */
+function avatarHTML() {
+  const st = S.settings;
+  if (st.logo) return `<img src="${esc(st.logo)}" alt="">`;
+  const n = (st.biz || '').replace(/^(?:محل|شركة|شركه|مؤسسة|مكتب|مطعم)\s+/, '').trim();
+  const w = n.replace(/^ال(?=[\u0600-\u06FF]{2})/, '');
+  return w ? esc(w[0]) : ic('logo');
+}
+function paintAvatars() { $$('[data-avatar]').forEach(el => { el.innerHTML = avatarHTML(); }); }
+$('#logoInput').addEventListener('change', async e => {
+  const f = e.target.files[0]; e.target.value = ''; if (!f) return;
+  try {
+    const { im, url } = await loadImage(f); const s = 256, c = document.createElement('canvas'); c.width = c.height = s;
+    const k = Math.max(s / im.width, s / im.height), w = im.width * k, h = im.height * k;
+    c.getContext('2d').drawImage(im, (s - w) / 2, (s - h) / 2, w, h); URL.revokeObjectURL(url);
+    S.settings.logo = c.toDataURL('image/jpeg', .86); save(); paintAvatars(); renderPrefs(); toast('اللوجو اتحدّث', { icon: 'image' });
+  } catch (err) { toast('مقدرتش أفتح الصورة دي', { type: 'err' }); }
+});
+
+/* =========================================================
+   Settings (iOS style)
+   ========================================================= */
+let setStack = ['root'], setParam = null, setAnim = '';
+const PAGE_T = { profile: 'الملف الشخصي', appearance: 'المظهر', numbers: 'الأرقام والتاريخ', accounts: 'الحسابات', account: 'حساب', rules: 'القواعد المحفوظة', input: 'الإدخال', security: 'الأمان والخصوصية', reminders: 'التذكيرات', data: 'البيانات', interaction: 'التفاعل', about: 'حول التطبيق' };
+const pageTitle = id => id === 'account' && setParam ? setParam : (PAGE_T[id] || 'الإعدادات');
+function pushPage(id, param) { setStack.push(id); if (param !== undefined) setParam = param; setAnim = motionOK() ? 'push-in' : ''; renderWork(); $('#views').scrollTop = 0; updateScrolled(); haptic('tick'); }
+function popPage() { if (setStack.length < 2) return; setStack.pop(); setAnim = motionOK() ? 'pop-in' : ''; renderWork(); $('#views').scrollTop = 0; updateScrolled(); haptic('tick'); }
+const tile = (color, icon) => `<span class="tile" style="background:var(--tile-${color})">${ic(icon)}</span>`;
+const chev = () => ic('chev', 'chev');
+const navRow = (page, color, icon, label, val = '', sub = '', param) => `<button type="button" class="set-row" data-page="${page}"${param !== undefined ? ` data-param="${esc(param)}"` : ''}>${tile(color, icon)}<span class="lbl">${label}${sub ? `<small>${sub}</small>` : ''}</span>${val !== '' ? `<span class="val">${val}</span>` : ''}${chev()}</button>`;
+const swRow = (key, color, icon, label, on, sub = '', dis = false) => `<div class="set-row">${color ? tile(color, icon) : ''}<span class="lbl" id="lb-${key}">${label}${sub ? `<small>${sub}</small>` : ''}</span><button type="button" class="switch" role="switch" aria-checked="${!!on}" aria-labelledby="lb-${key}" data-sw="${key}"${dis ? ' disabled' : ''}></button></div>`;
+const pickRow = (key, val, label, cur_, sub = '') => `<button type="button" class="set-row" role="radio" aria-checked="${String(cur_) === String(val)}" data-pick="${key}" data-val="${esc(val)}"><span class="lbl">${label}${sub ? `<small>${sub}</small>` : ''}</span>${String(cur_) === String(val) ? ic('check', 'ok') : ''}</button>`;
+const actRow = (act, color, icon, label, sub = '', extra = '') => `<button type="button" class="set-row" data-act="${act}"${extra}>${tile(color, icon)}<span class="lbl">${label}${sub ? `<small>${sub}</small>` : ''}</span>${chev()}</button>`;
+const group = (h, rows, f = '', cls = '') => `<div class="group">${h ? `<div class="group-h">${h}</div>` : ''}<div class="list ${cls}">${rows}</div>${f ? `<div class="group-f">${f}</div>` : ''}</div>`;
+const segCtl = (key, opts, cur_) => `<div class="seg full" role="radiogroup">${opts.map(([v, l]) => `<button type="button" role="radio" aria-checked="${String(cur_) === String(v)}" data-pick="${key}" data-val="${esc(v)}">${l}</button>`).join('')}</div>`;
+const MODE_AR = { system: 'تلقائي', light: 'فاتح', dark: 'غامق' };
+function renderPrefs() {
+  const box = $('#setRoot'); if (!box) return;
+  const pg = setStack[setStack.length - 1];
+  const fn = PAGES[pg] || PAGES.root;
+  box.innerHTML = `<div class="set-page ${setAnim}">${fn()}</div>`; setAnim = '';
+  fillIcons(box); paintAvatars(); updateInstallUI();
+  if (pg === 'about') renderAppStatus();
+  if (pg === 'data') fillStorage();
+}
+const PAGES = {
+  root() {
+    const st = S.settings, n = S.entries.length, accN = new Set(S.entries.flatMap(e => e.lines.map(l => l.account))).size;
+    return `<button type="button" class="profile" data-page="profile"><span class="avatar" data-avatar></span><span class="p-tx"><b>${esc(st.biz || 'نشاطي')}</b><small>${esc(st.owner || 'أضف اسم المالك واللوجو')}</small></span>${chev()}</button>
+    ${group('', navRow('appearance', 'blue', 'palette', 'المظهر', MODE_AR[st.theme] || 'تلقائي') + navRow('numbers', 'orange', 'hash', 'الأرقام والتاريخ', st.digits === 'arab' ? '١٢٣' : '123') + navRow('accounts', 'green', 'book', 'الحسابات', dg(accN)) + navRow('input', 'indigo', 'keyboard', 'الإدخال', st.confirmSave ? 'مراجعة قبل الحفظ' : 'حفظ تلقائي'))}
+    ${group('', navRow('security', 'gray', 'lock', 'الأمان والخصوصية', st.lock && st.lock.hash ? 'القفل شغال' : 'بدون قفل') + navRow('reminders', 'red', 'bell', 'التذكيرات') + navRow('data', 'teal', 'database', 'البيانات', dg(n) + ' قيد'))}
+    ${group('', navRow('interaction', 'pink', 'hand', 'التفاعل') + navRow('about', 'purple', 'info', 'حول التطبيق', APP_VERSION) + `<button type="button" class="set-row" data-install hidden>${tile('blue', 'download')}<span class="lbl">ثبّت دفتر على جهازك<small>يفتح زي أي تطبيق ويشتغل من غير نت</small></span>${chev()}</button>`)}
+    <p class="group-f" style="text-align:center">تصميم وتطوير: <a href="https://wa.me/201206580045" target="_blank" rel="noopener">محمد الشيخ</a></p>`;
+  },
+  profile() {
+    const st = S.settings;
+    return `<div style="display:flex;flex-direction:column;align-items:center;gap:10px"><span class="avatar xl" data-avatar></span><div style="display:flex;gap:8px"><button type="button" class="btn sm" data-act="logo">${ic('image')}${st.logo ? 'غيّر اللوجو' : 'ارفع لوجو'}</button>${st.logo ? `<button type="button" class="btn sm ghost" data-act="logoRemove">شيل اللوجو</button>` : ''}</div></div>
+    ${group('بيانات النشاط', `<label class="set-row" for="pBiz"><span class="lbl">اسم النشاط</span><input class="row-inp" id="pBiz" data-field="biz" maxlength="60" value="${esc(st.biz || '')}" placeholder="محل النور"></label><label class="set-row" for="pOwner"><span class="lbl">اسم المالك</span><input class="row-inp" id="pOwner" data-field="owner" maxlength="60" value="${esc(st.owner || '')}" placeholder="اختياري"></label>`, 'الاسم بيظهر في التقارير وملفات Excel وشاشة القفل.', 'noicons')}`;
+  },
+  appearance() {
+    const st = S.settings;
+    return `${group('الوضع', `<div class="list pad" style="border:0;padding:10px">${segCtl('theme', [['system', 'تلقائي'], ['light', 'فاتح'], ['dark', 'غامق']], st.theme)}</div>`)}
+    ${group('لون الواجهة', `<div style="padding:12px"><div class="swatches" role="radiogroup">${PALETTES.map(p => `<button type="button" class="sw" role="radio" aria-checked="${st.palette === p.id}" data-pick="palette" data-val="${p.id}"><i style="background:${p.c}"></i><span>${p.ar}</span></button>`).join('')}</div></div>`)}
+    ${group('الخط', FONTS.map(f => `<button type="button" class="set-row" role="radio" aria-checked="${st.font === f.id}" data-pick="font" data-val="${esc(f.id)}" style="font-family:'${f.id}',sans-serif"><span class="lbl">${f.ar}<small>بعت بضاعة بـ 3,500 كاش</small></span>${st.font === f.id ? ic('check', 'ok') : ''}</button>`).join(''), '', 'noicons')}
+    ${group('حجم الخط', `<div class="preview"><div class="bubble">دفعت إيجار المحل 6000 من البنك</div><div class="pv-line"><span>مصروف إيجار</span><span class="num">${money(6000)}</span></div></div><div class="fs-row"><span class="a1" aria-hidden="true">أ</span><label class="sr" for="xFs">حجم الخط</label><input type="range" id="xFs" min="0.85" max="1.25" step="0.05" value="${st.fs || 1}"><span class="a2" aria-hidden="true">أ</span></div>`)}
+    ${group('الكثافة', `<div class="list pad" style="border:0;padding:10px">${segCtl('density', [['comfy', 'مريحة'], ['compact', 'مضغوطة']], st.density)}</div>`, 'المضغوطة بتعرض بيانات أكتر في الشاشة.')}`;
+  },
+  numbers() {
+    const st = S.settings, d = today();
+    return `${group('شكل الأرقام', pickRow('digits', 'latn', '123 أرقام غربية', st.digits) + pickRow('digits', 'arab', '١٢٣ أرقام عربية', st.digits), `معاينة: <span class="num">${money(12345.678)}</span>`, 'noicons')}
+    ${group('العملة', `<label class="set-row" for="xCur"><span class="lbl">العملة</span><select class="row-sel" id="xCur" data-field="cur">${Object.entries(CURS).map(([k, v]) => `<option value="${k}"${st.cur === k ? ' selected' : ''}>${v.ar} (${k})</option>`).join('')}</select></label>`, '', 'noicons')}
+    ${group('الكسور العشرية', `<div class="list pad" style="border:0;padding:10px">${segCtl('dec', [['0', 'بدون'], ['2', 'رقمين'], ['3', '3 أرقام']], String(st.dec))}</div>`)}
+    ${group('التاريخ', pickRow('cal', 'greg', 'ميلادي', st.cal) + pickRow('cal', 'hijri', 'هجري', st.cal) + pickRow('cal', 'both', 'ميلادي وهجري مع بعض', st.cal), `النهارده: ${esc(fmtDate(d))}`, 'noicons')}`;
+  },
+  accounts() {
+    const used = new Map();
+    for (const e of S.entries) for (const l of e.lines) { const r = used.get(l.account) || { n: 0 }; r.n++; used.set(l.account, r); }
+    for (const a of Object.keys(S.accounts || {})) if (!used.has(a)) used.set(a, { n: 0 });
+    const bal = agg(() => true);
+    const list = [...used.keys()].map(a => ({ account: a, type: classify(a) })).sort(acctSort);
+    const dupes = findDupes([...used.keys()]);
+    let html = group('', actRow('addAcc', 'green', 'plus', 'إضافة حساب جديد') + navRow('rules', 'indigo', 'spark', 'القواعد المحفوظة', dg(S.rules.length)));
+    if (dupes.length) html += group('حسابات شكلها مكررة', dupes.map(([a, b]) => `<button type="button" class="set-row" data-act="mergeSug" data-from="${esc(a)}" data-into="${esc(b)}">${tile('orange', 'merge')}<span class="lbl">ادمج «${esc(a)}» في «${esc(b)}»<small>هينقل كل الحركات للحساب التاني</small></span>${chev()}</button>`).join(''));
+    for (const t of TYPES) {
+      const a = list.filter(x => x.type === t); if (!a.length) continue;
+      html += group(TYPE_PL[t], a.map(x => { const r = bal.get(x.account); const b = r ? signedBal(r) : 0; return `<button type="button" class="set-row" data-page="account" data-param="${esc(x.account)}"><span class="lbl">${esc(x.account)}${STD_TYPE.has(x.account) ? '' : '<small>حساب مضاف</small>'}</span><span class="val num">${money(b, { paren: true })}</span>${chev()}</button>`; }).join(''), '', 'noicons');
+    }
+    return html + `<p class="group-f">الأرصدة من كل القيود لحد النهارده. افتح أي حساب عشان تغيّر اسمه أو نوعه، تدمجه، أو تحط رصيد افتتاحي.</p>`;
+  },
+  account() {
+    const acc = setParam; if (!acc) return '';
+    const type = classify(acc), std = STD_TYPE.has(acc), side = normalSide(acc, type);
+    const r = agg(() => true).get(acc); const bal = r ? signedBal(r) : 0;
+    const n = S.entries.reduce((s, e) => s + e.lines.filter(l => l.account === acc).length, 0);
+    const ob = (S.opening || {})[acc] || '';
+    const others = [...allAccounts().keys()].filter(a => a !== acc && classify(a) === type);
+    return `<div class="list"><div class="sum-strip"><div><span>النوع</span><b>${TYPE_AR[type]}</b></div><div><span>الطبيعة</span><b>${side === 'debit' ? 'مدين' : 'دائن'}</b></div><div><span>الرصيد</span><b class="num">${money(bal, { paren: true })}</b></div></div></div>
+    ${group('', `<button type="button" class="set-row" data-act="openLedger">${tile('blue', 'ledger')}<span class="lbl">افتح في الأستاذ<small>${dg(n)} حركة</small></span>${chev()}</button>`)}
+    ${std ? group('', `<div class="set-row"><span class="lbl">حساب أساسي<small>الحسابات الأساسية ثابتة عشان دفتر يفهمها من كلامك. تقدر تدمج حساب مضاف فيها.</small></span></div>`, '', 'noicons') :
+      group('الاسم والنوع', `<label class="set-row" for="aName"><span class="lbl">الاسم</span><input class="row-inp" id="aName" value="${esc(acc)}" maxlength="60"></label><div class="set-row" style="flex-wrap:wrap"><span class="lbl">النوع</span>${segCtl('acctType', TYPES.map(t => [t, TYPE_AR[t]]), type).replace('seg full', 'seg full" style="flex:1 1 100%')}</div><button type="button" class="set-row center" data-act="renameAcc">حفظ الاسم</button>`, '', 'noicons')}
+    ${!std && others.length ? group('الدمج', `<label class="set-row" for="aInto"><span class="lbl">ادمج في</span><select class="row-sel" id="aInto">${others.map(a => `<option>${esc(a)}</option>`).join('')}</select></label><button type="button" class="set-row center" data-act="mergeAcc">دمج الحساب</button>`, 'كل حركات الحساب ده هتتنقل للحساب اللي تختاره، والحساب ده هيتشال.', 'noicons') : ''}
+    ${['asset', 'liability', 'equity'].includes(type) && acc !== CAP ? group('الرصيد الافتتاحي', `<label class="set-row" for="aOb"><span class="lbl">الرصيد أول ما بدأت دفتر</span><input class="row-inp num" id="aOb" inputmode="decimal" value="${esc(ob)}" placeholder="0"></label><button type="button" class="set-row center" data-act="saveOb">حفظ الرصيد الافتتاحي</button>`, 'بيتسجّل في قيد «أرصدة افتتاحية» واحد، والطرف التاني «رأس المال».', 'noicons') : ''}
+    ${!std && !n ? group('', `<button type="button" class="set-row danger" data-act="delAcc">حذف الحساب</button>`, '', 'noicons') : ''}`;
+  },
+  rules() {
+    const rows = S.rules.length ? S.rules.map((r, i) => `<div class="set-row"><span class="lbl">«${esc(r.kw)}»<small>اتطبّقت ${dg(r.hits || 0)} مرة</small></span><label class="sr" for="ra-${i}">الحساب</label><input class="row-inp" id="ra-${i}" data-ri="${i}" list="acctList" value="${esc(r.account)}"><button type="button" class="btn ghost icon" data-rdel="${i}" aria-label="احذف قاعدة ${esc(r.kw)}">${ic('trash')}</button></div>`).join('') : `<div class="set-row"><span class="lbl"><small>لسه مفيش قواعد. لما تغيّر حساب في قيد مقترح أو تختار من الأسئلة، دفتر هيفتكر الكلمة هنا.</small></span></div>`;
+    return `${group('الكلمة ← الحساب', rows, '', 'noicons')}
+    ${group('قاعدة جديدة', `<label class="set-row" for="rKw"><span class="lbl">الكلمة</span><input class="row-inp" id="rKw" maxlength="30" placeholder="مثلاً: يافطة"></label><label class="set-row" for="rAcc"><span class="lbl">الحساب</span><input class="row-inp" id="rAcc" list="acctList" maxlength="60" placeholder="مصروف تسويق"></label><button type="button" class="set-row center" data-act="addRule">إضافة القاعدة</button>`, '', 'noicons')}`;
+  },
+  input() {
+    const st = S.settings;
+    return `${group('طريقة الدفع الافتراضية', pickRow('defPay', 'ask', 'اسألني كل مرة', st.defPay) + pickRow('defPay', 'cash', 'كاش', st.defPay) + pickRow('defPay', 'bank', 'البنك', st.defPay) + pickRow('defPay', 'credit', 'على الحساب (آجل)', st.defPay), 'بتتستخدم لما ما تقولش الطريقة في الكلام.', 'noicons')}
+    ${group('', swRow('confirmSave', 'green', 'check', 'مراجعة القيد قبل الحفظ', st.confirmSave, 'لو قفلتها، القيود المتوازنة بتتحفظ على طول'))}
+    ${group('لغة الصوت', pickRow('voiceLang', 'ar-EG', 'عربي مصري', st.voiceLang) + pickRow('voiceLang', 'ar-SA', 'عربي (السعودية)', st.voiceLang) + pickRow('voiceLang', 'en-US', 'English', st.voiceLang), SR ? '' : 'المتصفح ده مش بيدعم التعرف على الصوت.', 'noicons')}
+    ${group('', `<button type="button" class="set-row danger" data-act="clearChat">مسح المحادثة</button>`, 'القيود المحفوظة مش هتتمسح، بس الرسايل.', 'noicons')}`;
+  },
+  security() {
+    const st = S.settings, on = !!(st.lock && st.lock.hash);
+    const bioRow = on && bioOK ? swRow('bio', 'blue', 'face', 'فتح بالبصمة أو الوجه', !!st.lock.bioId) : '';
+    return `${group('', swRow('lock', 'gray', 'lock', 'قفل التطبيق برقم سري', on) + (on ? actRow('changePin', 'gray', 'lock', 'غيّر الرقم السري') : '') + bioRow, on ? '' : 'لما تشغّله، دفتر هيطلب رقم سري من 4 أو 6 أرقام كل ما يتفتح.')}
+    ${on ? group('القفل التلقائي', [[0, 'فوراً'], [1, 'بعد دقيقة'], [5, 'بعد 5 دقايق'], [15, 'بعد ربع ساعة']].map(([v, l]) => pickRow('autoLock', v, l, st.autoLock)).join(''), 'بعد ما تقفل التطبيق أو تروح لتطبيق تاني.', 'noicons') : ''}
+    ${group('', swRow('blurBg', 'indigo', 'shield', 'إخفاء المحتوى في الخلفية', st.blurBg, 'بيغبّش الشاشة لما تسيب التطبيق'))}
+    <p class="group-f">الرقم السري بيتحفظ كبصمة مشفّرة (SHA-256) على جهازك بس، ومش بيتحط في النسخة الاحتياطية. لو نسيته، هتحتاج تمسح بيانات الموقع من المتصفح وترجّع آخر نسخة احتياطية.</p>`;
+  },
+  reminders() {
+    const st = S.settings;
+    return `${group('تذكير النسخة الاحتياطية', [[7, 'كل أسبوع'], [30, 'كل شهر'], [0, 'من غير تذكير']].map(([v, l]) => pickRow('remind', v, l, st.remind)).join(''), S.lastBackup ? `آخر نسخة: ${esc(fmtDate(ymd(new Date(S.lastBackup))))}` : 'لسه ما خدتش نسخة احتياطية.', 'noicons')}
+    ${group('', swRow('nudge', 'red', 'bell', '«سجّلت عمليات النهارده؟»', st.nudge, 'تذكير يومي لما تفتح التطبيق ومفيش قيود النهارده'))}
+    <p class="group-f">التذكيرات بتظهر جوه دفتر لما تفتحه، مش إشعارات على الموبايل.</p>`;
+  },
+  data() {
+    return `${group('', `<div class="sum-strip"><div><span>القيود</span><b class="num">${dg(S.entries.length)}</b></div><div><span>آخر نسخة</span><b>${S.lastBackup ? esc(fmtShort(ymd(new Date(S.lastBackup)))) : 'ولا مرة'}</b></div><div><span>المساحة</span><b id="stUsed">…</b></div></div>`)}
+    ${group('النسخ الاحتياطي', actRow('backup', 'teal', 'save', 'خد نسخة احتياطية', 'ملف JSON فيه كل حاجة') + actRow('restore', 'gray', 'restore', 'استرجع نسخة'))}
+    ${group('Excel والتقارير', actRow('excel', 'green', 'sheet', 'تصدير Excel', '6 شيتات') + actRow('import', 'blue', 'upload', 'استيراد من Excel أو CSV') + actRow('report', 'orange', 'print', 'تقرير جاهز للطباعة'))}
+    ${group('', actRow('sample', 'purple', 'spark', 'تحميل بيانات تجريبية', 'محل أدوات منزلية وهمي'))}
+    ${group('', `<button type="button" class="set-row danger" data-act="resetAll">مسح كل البيانات</button>`, 'هيمسح القيود والمحادثات والقواعد والإعدادات من الجهاز ده.', 'noicons')}`;
+  },
+  interaction() {
+    const st = S.settings, canVib = !!navigator.vibrate;
+    return `${group('', swRow('haptics', 'pink', 'hand', 'الاهتزاز الخفيف', st.haptics && canVib, canVib ? 'رجّة صغيرة مع الأزرار والحفظ' : 'جهازك أو متصفحك مش بيدعم الاهتزاز', !canVib) + swRow('sounds', 'orange', 'speaker', 'أصوات الواجهة', st.sounds, 'أصوات هادية مع الإرسال والحفظ') + swRow('motion', 'blue', 'motion', 'تقليل الحركة', st.motion === 'reduce' || sysReduce.matches, sysReduce.matches ? 'مفعّل من إعدادات جهازك' : 'بيوقف الحركات والانتقالات', sysReduce.matches))}`;
+  },
+  about() {
+    return `<div class="list"><div class="app-card"><div class="logo" data-ic="logo"></div><b>دفتر — المحاسب الذكي</b><small>الإصدار ${dg(APP_VERSION)}</small></div></div>
+    ${group('', actRow('changelog', 'purple', 'gift', 'الجديد في الإصدار') + actRow('privacy', 'gray', 'shield', 'الخصوصية') + `<button type="button" class="set-row" data-install hidden>${tile('blue', 'download')}<span class="lbl">ثبّت التطبيق</span>${chev()}</button>`)}
+    ${group('حالة التطبيق', `<div class="app-status list pad" id="appStatus" style="border:0"></div>`)}
+    ${group('', `<a class="set-row" href="https://wa.me/201206580045" target="_blank" rel="noopener">${tile('green', 'wa')}<span class="lbl">تصميم وتطوير: محمد الشيخ<small>واتساب <span class="num">01206580045</span></small></span>${chev()}</a>`)}`;
+  },
+};
+async function fillStorage() {
+  const el = $('#stUsed'); if (!el) return;
+  try { const { usage } = await navigator.storage.estimate(); el.textContent = dg((usage / 1048576).toFixed(1)) + ' ميجا'; } catch (e) { el.textContent = '—'; }
+}
+function findDupes(names) {
+  const by = new Map(), out = [];
+  for (const n of names) { const k = akey(n).replace(/^ال/, '').replace(/[\s\-–]+/g, ''); if (!by.has(k)) by.set(k, []); by.get(k).push(n); }
+  for (const g of by.values()) if (g.length > 1) { const std = g.find(x => STD_TYPE.has(x)) || g[0]; g.filter(x => x !== std && !STD_TYPE.has(x)).forEach(x => out.push([x, std])); }
+  return out.slice(0, 6);
+}
+function setSetting(key, val) {
+  const st = S.settings;
+  if (key === 'dec' || key === 'autoLock' || key === 'remind') val = +val;
+  st[key] = val;
+  if (['theme', 'palette', 'font'].includes(key)) applyTheme();
+  if (['digits', 'dec', 'cal', 'density', 'fs', 'motion'].includes(key)) applyPrefs();
+  writePre(); save();
+}
+const setRoot = $('#setRoot');
+setRoot.addEventListener('click', async e => {
+  const pgBtn = e.target.closest('[data-page]');
+  if (pgBtn) { pushPage(pgBtn.dataset.page, pgBtn.dataset.param); return; }
+  const sw = e.target.closest('[data-sw]');
+  if (sw) { await toggleSwitch(sw.dataset.sw, sw); return; }
+  const pk = e.target.closest('[data-pick]');
+  if (pk) {
+    const key = pk.dataset.pick, val = pk.dataset.val;
+    if (key === 'acctType') { changeAccType(setParam, val); return; }
+    setSetting(key, val); haptic('tick');
+    if (['digits', 'dec', 'cal', 'cur'].includes(key)) { refreshAll(); renderChat(); }
+    renderPrefs(); return;
+  }
+  const rd = e.target.closest('[data-rdel]');
+  if (rd) { const [r] = S.rules.splice(+rd.dataset.rdel, 1); save(); renderPrefs(); toast(`اتحذفت قاعدة «${r.kw}»`, { icon: 'trash', action: { label: 'تراجع', fn: () => { S.rules.push(r); save(); renderPrefs(); } } }); return; }
+  const a = e.target.closest('[data-act]'); if (!a) return;
+  const act = a.dataset.act;
+  const acts = {
+    logo: () => $('#logoInput').click(),
+    logoRemove: () => { S.settings.logo = ''; save(); paintAvatars(); renderPrefs(); },
+    backup: backupDialog, restore: () => $('#jsonInput').click(), excel: exportExcel, import: () => $('#xlsInput').click(), report: reportDialog,
+    sample: () => confirmDialog('تحميل البيانات التجريبية', S.entries.length ? `هيتم استبدال الـ ${S.entries.length} قيد الحاليين ببيانات محل تجريبي (شهر ونص). خد نسخة احتياطية الأول لو محتاجهم.` : 'هيتم تحميل شهر ونص من العمليات لمحل أدوات منزلية وهمي عشان تشوف دفتر شغال.', 'حمّل البيانات', () => { loadSample(); renderPrefs(); toast('البيانات التجريبية اتحمّلت', { icon: 'spark' }); }),
+    resetAll: resetDialog, clearChat: () => confirmDialog('مسح المحادثة', 'كل الرسايل هتتمسح. القيود المحفوظة في الدفتر هتفضل زي ما هي.', 'امسح المحادثة', () => { S.messages = []; S.pendingQ = null; save(); renderChat(); toast('المحادثة اتمسحت', { icon: 'trash' }); }, true),
+    changelog: changelogSheet, privacy: privacySheet, addAcc: addAccountSheet,
+    openLedger: () => { S.ui.lAcc = setParam; save(); setView('ledger'); },
+    renameAcc: () => renameAccount(setParam, $('#aName').value),
+    mergeAcc: () => { const into = $('#aInto').value; confirmDialog('دمج الحساب', `كل حركات «${setParam}» هتتنقل لـ «${into}».`, 'ادمج', () => { mergeAccount(setParam, into); popPage(); }); },
+    mergeSug: () => confirmDialog('دمج الحساب', `كل حركات «${a.dataset.from}» هتتنقل لـ «${a.dataset.into}».`, 'ادمج', () => { mergeAccount(a.dataset.from, a.dataset.into); renderPrefs(); }),
+    saveOb: () => { setOpening(setParam, toNum($('#aOb').value)); renderPrefs(); },
+    delAcc: () => { delete S.accounts[setParam]; invalidate(); save(); fillDatalist(); popPage(); toast('الحساب اتحذف', { icon: 'trash' }); },
+    addRule: () => { const kw = $('#rKw').value.trim(), acc = canonicalAccount($('#rAcc').value); if (!kw || !acc) { toast('اكتب الكلمة والحساب', { type: 'err' }); return; } if (isCashAcc(acc)) { toast('القواعد للحسابات التانية غير الصندوق والبنك', { type: 'err' }); return; } learnRule(kw, acc); save(); renderPrefs(); toast('القاعدة اتضافت', { icon: 'spark' }); },
+    changePin: () => verifyPin(() => showLock('setup', { onDone: () => toast('الرقم السري اتغيّر', { icon: 'lock' }) })),
+  };
+  if (acts[act]) acts[act]();
+});
+setRoot.addEventListener('input', e => {
+  const f = e.target.dataset.field;
+  if (f === 'biz' || f === 'owner') { S.settings[f] = e.target.value.trim(); save(); updateCounts(); paintAvatars(); }
+  if (e.target.id === 'xFs') { const v = +e.target.value; S.settings.fs = v; root.style.setProperty('--fs', String(v)); writePre(); save(); }
+});
+setRoot.addEventListener('change', e => {
+  if (e.target.dataset.field === 'cur') { setSetting('cur', e.target.value); refreshAll(); renderChat(); }
+  const ri = e.target.dataset.ri;
+  if (ri != null) { const a = canonicalAccount(e.target.value); if (!a) { renderPrefs(); return; } S.rules[+ri].account = a; S.rules[+ri].type = classify(a); save(); toast('القاعدة اتعدّلت', { icon: 'spark' }); }
+});
+async function toggleSwitch(key, el) {
+  const st = S.settings, on = el.getAttribute('aria-checked') !== 'true';
+  haptic('tick');
+  if (key === 'lock') {
+    if (on) showLock('setup', { onDone: () => { renderPrefs(); toast('قفل التطبيق اشتغل', { icon: 'lock' }); }, onCancel: renderPrefs });
+    else verifyPin(() => { st.lock = null; save(); writePre(); renderPrefs(); toast('القفل اتشال', { icon: 'lock' }); });
+    return;
+  }
+  if (key === 'bio') {
+    if (on) { try { await bioRegister(); save(); toast('فتح البصمة اشتغل', { icon: 'face' }); } catch (err) { toast('مقدرتش أفعّل البصمة على الجهاز ده', { type: 'err' }); } }
+    else { st.lock.bioId = null; save(); }
+    renderPrefs(); return;
+  }
+  if (key === 'motion') { setSetting('motion', on ? 'reduce' : 'auto'); renderPrefs(); return; }
+  el.setAttribute('aria-checked', String(on));
+  setSetting(key, on);
+  if (key === 'sounds' && on) sound('success');
+  if (key === 'haptics' && on) haptic('success');
+}
+
+/* ---------- account manager ---------- */
+function renormalize(e) { const n = normalize({ ...e, lines: e.lines.map(l => ({ account: l.account, type: l.type, debit: l.debit, credit: l.credit })) }, { source: e.source }); e.lines = n.lines; }
+function changeAccType(acc, t) {
+  if (!acc || STD_TYPE.has(acc) || !TYPES.includes(t)) return;
+  S.accounts[acc] = t; invalidate();
+  for (const e of S.entries) if (e.lines.some(l => l.account === acc)) { e.lines.forEach(l => { if (l.account === acc) l.type = t; }); renormalize(e); }
+  for (const r of S.rules) if (r.account === acc) r.type = t;
+  save(); refreshAll(); renderPrefs(); toast(`نوع «${acc}» بقى ${TYPE_AR[t]}`, { icon: 'book' });
+}
+function renameAccount(from, to) {
+  to = clean(to); if (!to || to === from) return;
+  const existing = [...allAccounts().keys()].find(a => akey(a) === akey(to));
+  if (existing && existing !== from) { confirmDialog('الاسم موجود', `فيه حساب اسمه «${existing}». تحب تدمج «${from}» فيه؟`, 'ادمج', () => { mergeAccount(from, existing); popPage(); }); return; }
+  const t = classify(from);
+  for (const e of S.entries) for (const l of e.lines) if (l.account === from) l.account = to;
+  for (const r of S.rules) if (r.account === from) r.account = to;
+  if (S.opening && S.opening[from] != null) { S.opening[to] = S.opening[from]; delete S.opening[from]; }
+  delete S.accounts[from]; S.accounts[to] = t; if (S.ui.lAcc === from) S.ui.lAcc = to;
+  invalidate(); save(); fillDatalist(); setParam = to; setStack[setStack.length - 1] = 'account'; refreshAll(); renderWork(); toast(`اتغيّر الاسم لـ «${to}»`, { icon: 'book' });
+}
+function mergeAccount(from, into) {
+  if (!from || !into || from === into) return;
+  for (const e of S.entries) if (e.lines.some(l => l.account === from)) { e.lines.forEach(l => { if (l.account === from) { l.account = into; l.type = classify(into); } }); renormalize(e); }
+  for (const r of S.rules) if (r.account === from) { r.account = into; r.type = classify(into); }
+  if (S.opening && S.opening[from] != null) { S.opening[into] = r2((S.opening[into] || 0) + S.opening[from]); delete S.opening[from]; rebuildOpening(); }
+  delete S.accounts[from]; if (S.ui.lAcc === from) S.ui.lAcc = into;
+  invalidate(); save(); fillDatalist(); refreshAll(); renderChatStamps(); toast(`«${from}» اتدمج في «${into}»`, { icon: 'merge' });
+}
+function setOpening(acc, amt) { S.opening = S.opening || {}; if (amt) S.opening[acc] = r2(amt); else delete S.opening[acc]; rebuildOpening(); toast(amt ? 'الرصيد الافتتاحي اتسجّل' : 'الرصيد الافتتاحي اتشال', { icon: 'book' }); }
+function rebuildOpening() {
+  const ob = S.opening || {}; const idx = S.entries.findIndex(e => e.source === 'opening');
+  const lines = [];
+  for (const [acc, amt] of Object.entries(ob)) { if (!amt) continue; const side = normalSide(acc, classify(acc)); const v = Math.abs(amt), flip = amt < 0; lines.push({ account: acc, debit: (side === 'debit') !== flip ? v : 0, credit: (side === 'debit') !== flip ? 0 : v }); }
+  if (!lines.length) { if (idx >= 0) S.entries.splice(idx, 1); invalidate(); save(); refreshAll(); return; }
+  const d = sum(lines, l => l.debit) - sum(lines, l => l.credit);
+  if (Math.abs(d) >= 0.005) lines.push({ account: CAP, debit: d < 0 ? -d : 0, credit: d > 0 ? d : 0 });
+  const others = S.entries.filter(e => e.source !== 'opening').map(e => e.date).sort();
+  const date = others.length ? addDays(others[0], -1) : today();
+  const e = normalize({ date, description: 'أرصدة افتتاحية', explanation: 'أرصدة الحسابات أول ما بدأت تستخدم دفتر، والفرق اتسجّل على رأس المال.', lines, source: 'opening' }, { source: 'opening' });
+  if (idx >= 0) { const old = S.entries[idx]; Object.assign(old, { date: e.date, lines: e.lines, description: e.description }); }
+  else postEntry(e);
+  invalidate(); save(); refreshAll();
+}
+function addAccountSheet() {
+  openDialog({ title: 'حساب جديد', body: `<label class="field"><span>اسم الحساب</span><input class="inp" id="naName" maxlength="60" placeholder="مثلاً: مصروف ضيافة"></label><div class="field"><span>النوع</span><div class="seg full" role="radiogroup" id="naType">${TYPES.map((t, i) => `<button type="button" role="radio" aria-checked="${i === 4}" data-t="${t}">${TYPE_AR[t]}</button>`).join('')}</div></div>`,
+    foot: `<button type="button" class="btn" data-close>إلغاء</button><button type="button" class="btn primary" id="naOk">إضافة</button>`,
+    onMount: d => {
+      const nm = $('#naName', d); setTimeout(() => nm.focus(), 120);
+      $('#naType', d).addEventListener('click', e => { const b = e.target.closest('[data-t]'); if (!b) return; $$('#naType [data-t]', d).forEach(x => x.setAttribute('aria-checked', String(x === b))); });
+      nm.addEventListener('input', () => { const g = guessType(nm.value); $$('#naType [data-t]', d).forEach(x => x.setAttribute('aria-checked', String(x.dataset.t === g))); });
+      $('#naOk', d).onclick = () => { const n = clean(nm.value); if (!n) { nm.focus(); return; } if (allAccounts().has(n)) { toast('الحساب ده موجود', { type: 'err' }); return; } S.accounts[n] = $('#naType [aria-checked="true"]', d).dataset.t; invalidate(); save(); fillDatalist(); d.close(); renderPrefs(); toast(`اتضاف «${n}»`, { icon: 'plus' }); };
+    } });
+}
+function resetDialog() {
+  openDialog({ title: 'مسح كل البيانات', body: `<div class="typed-confirm"><p style="font-size:var(--t-sm)">هيتمسح كل القيود والمحادثات والقواعد والإعدادات من الجهاز ده. مفيش رجوع إلا لو عندك نسخة احتياطية.</p><label class="field"><span>اكتب «مسح» للتأكيد</span><input class="inp" id="rsIn" autocomplete="off"></label></div>`,
+    foot: `<button type="button" class="btn" data-close>إلغاء</button><button type="button" class="btn danger solid" id="rsOk" disabled>امسح كل حاجة</button>`,
+    onMount: d => { const i = $('#rsIn', d), b = $('#rsOk', d); setTimeout(() => i.focus(), 120); i.addEventListener('input', () => { b.disabled = fold(i.value.trim()) !== fold('مسح'); }); b.onclick = () => { d.close(); S = defaults(); S.settings = { ...S.settings, ...DEF_SETTINGS }; setStack = ['root']; invalidate(); save(true); applyPrefs(); applyTheme(); renderChat(); refreshAll(); showOnboarding(); }; } });
+}
+function changelogSheet() {
+  openDialog({ title: 'الجديد في الإصدار', body: `<div class="changelog"><div><h3>الإصدار 1.1.0</h3><ul>
+    <li>شكل جديد كأنه تطبيق رسمي: حركات ناعمة، عناوين كبيرة بتصغر مع التمرير، وشريط تبويب زجاجي.</li>
+    <li>شاشة ترحيب متحركة وشاشة بداية سريعة.</li>
+    <li>إعدادات مرتبة زي الآيفون: المظهر، الأرقام والتاريخ (أرقام عربية وهجري)، الحسابات، الإدخال، الأمان، التذكيرات.</li>
+    <li>قفل برقم سري، وفتح بالبصمة أو الوجه على الأجهزة اللي بتدعمها.</li>
+    <li>إدارة الحسابات: إضافة، إعادة تسمية، تغيير النوع، دمج المكرر، وأرصدة افتتاحية.</li>
+    <li>في الدفتر: اسحب القيد عشان تعدّله أو تحذفه، أو دوس عليه مطوّل.</li>
+    <li>اهتزاز خفيف وأصوات هادية (اختيارية)، وحجم خط وكثافة تتغيّر.</li></ul></div>
+    <div><h3>الإصدار 1.0.0</h3><ul><li>محاسبة بالكلام بالعامية، قراءة الفواتير، القوائم المالية، Excel، والشغل من غير نت.</li></ul></div></div>`, foot: '<button type="button" class="btn primary" data-close>تمام</button>' });
+}
+function privacySheet() {
+  openDialog({ title: 'الخصوصية', body: `<div class="changelog"><p style="font-size:var(--t-sm)">كل بياناتك (القيود، المحادثات، القواعد، الإعدادات) متخزّنة على الجهاز ده بس، جوه المتصفح. دفتر مش بيبعت أي بيانات لأي سيرفر، ومفيش حسابات ولا تتبّع.</p><p style="font-size:var(--t-sm)">الإنترنت بيتستخدم بس عشان تحميل الخطوط ومكتبة Excel وملفات قراءة الفواتير أول مرة، والتعرف على الصوت بيتم عن طريق المتصفح نفسه.</p><p style="font-size:var(--t-sm)">خد نسخة احتياطية بانتظام، لأن مسح بيانات المتصفح بيمسح الدفتر.</p></div>`, foot: '<button type="button" class="btn primary" data-close>تمام</button>' });
+}
+
+/* =========================================================
+   App lock (PIN + optional platform biometrics)
+   ========================================================= */
+const LK = { mode: null, buf: '', first: '', len: 4, onDone: null, onCancel: null, fails: 0, until: 0 };
+let bioOK = false, hiddenAt = 0;
+(async () => { try { bioOK = !!(window.PublicKeyCredential && await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()); } catch (e) { bioOK = false; } })();
+const b64 = buf => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+const unb64 = s => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/') + '==='.slice((s.length + 3) % 4)), c => c.charCodeAt(0));
+async function pinHash(pin, salt) { const d = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('daftar:' + salt + ':' + pin)); return b64(d); }
+function showLock(mode, opts = {}) {
+  Object.assign(LK, { mode, buf: '', first: '', onDone: opts.onDone || null, onCancel: opts.onCancel || null, len: mode === 'setup' ? (opts.len || 4) : ((S.settings.lock && S.settings.lock.len) || 4) });
+  const lk = $('#lock'); lk.hidden = false; lk.classList.remove('out'); if (motionOK()) { lk.classList.remove('in'); void lk.offsetWidth; lk.classList.add('in'); }
+  root.classList.remove('locked-pre'); root.classList.remove('shielded');
+  $('#lockCancel').hidden = mode === 'unlock';
+  paintAvatars(); lockText(); renderKeypad(); dots();
+  if (mode === 'unlock' && S.settings.lock && S.settings.lock.bioId && bioOK) setTimeout(() => { if (!$('#lock').hidden) $('#keypad [data-k="bio"]')?.focus(); }, 60);
+}
+function lockText(msg) {
+  const t = { unlock: 'ادخل الرقم السري', verify: 'ادخل الرقم السري الحالي', setup: LK.first ? 'أكّد الرقم السري' : 'اختار رقم سري' }[LK.mode];
+  $('#lockTitle').textContent = t;
+  $('#lockSub').innerHTML = LK.mode === 'unlock' ? esc(S.settings.biz || 'دفتر') : LK.mode === 'setup' && !LK.first ? `<button type="button" class="linkish" id="lkLen">استخدم ${LK.len === 4 ? '6 أرقام' : '4 أرقام'}</button>` : '';
+  $('#lockMsg').textContent = msg || '';
+  const ll = $('#lkLen'); if (ll) ll.onclick = () => { LK.len = LK.len === 4 ? 6 : 4; LK.buf = ''; lockText(); dots(); };
+}
+function renderKeypad() {
+  const bio = LK.mode === 'unlock' && S.settings.lock && S.settings.lock.bioId && bioOK;
+  const keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', bio ? 'bio' : '', '0', 'del'];
+  $('#keypad').innerHTML = keys.map(k => k === '' ? '<span class="key empty"></span>' : k === 'bio' ? `<button type="button" class="key ghost" data-k="bio" aria-label="افتح بالبصمة أو الوجه">${ic('face')}</button>` : k === 'del' ? `<button type="button" class="key ghost" data-k="del" aria-label="امسح رقم">${ic('del')}</button>` : `<button type="button" class="key" data-k="${k}">${dg(k)}</button>`).join('');
+}
+function dots(shake) { const d = $('#pinDots'); d.innerHTML = Array.from({ length: LK.len }, (_, i) => `<i class="${i < LK.buf.length ? 'on' : ''}"></i>`).join(''); if (shake && motionOK()) { d.classList.remove('shake'); void d.offsetWidth; d.classList.add('shake'); } }
+$('#keypad').addEventListener('click', e => { const k = e.target.closest('[data-k]'); if (k) keyIn(k.dataset.k); });
+$('#lockCancel').addEventListener('click', () => { const c = LK.onCancel; hideLock(); if (c) c(); });
+document.addEventListener('keydown', e => {
+  if ($('#lock').hidden) return;
+  if (/^[0-9٠-٩]$/.test(e.key)) { e.preventDefault(); keyIn(String('٠١٢٣٤٥٦٧٨٩'.indexOf(e.key) >= 0 ? '٠١٢٣٤٥٦٧٨٩'.indexOf(e.key) : e.key)); }
+  else if (e.key === 'Backspace') { e.preventDefault(); keyIn('del'); }
+  else if (e.key === 'Escape' && LK.mode !== 'unlock') { e.preventDefault(); $('#lockCancel').click(); }
+}, true);
+async function keyIn(k) {
+  if (Date.now() < LK.until) { lockText(`استنى ${Math.ceil((LK.until - Date.now()) / 1000)} ثانية`); return; }
+  if (k === 'bio') { bioUnlock(); return; }
+  haptic('tick');
+  if (k === 'del') { LK.buf = LK.buf.slice(0, -1); dots(); return; }
+  if (LK.buf.length >= LK.len) return;
+  LK.buf += k; dots();
+  if (LK.buf.length < LK.len) return;
+  const pin = LK.buf;
+  await sleep(120);
+  if (LK.mode === 'setup') {
+    if (!LK.first) { LK.first = pin; LK.buf = ''; lockText(); dots(); return; }
+    if (pin !== LK.first) { LK.first = ''; LK.buf = ''; haptic('warn'); dots(true); lockText('الرقمين مش زي بعض، جرّب تاني'); return; }
+    const salt = b64(crypto.getRandomValues(new Uint8Array(12)));
+    S.settings.lock = { hash: await pinHash(pin, salt), salt, len: LK.len, bioId: (S.settings.lock && S.settings.lock.bioId) || null };
+    save(true); writePre(); const done = LK.onDone; hideLock(); haptic('success'); if (done) done(); return;
+  }
+  const L = S.settings.lock; const ok = L && await pinHash(pin, L.salt) === L.hash;
+  if (ok) { LK.fails = 0; const done = LK.onDone; hideLock(); haptic('success'); sound('success'); if (done) done(); return; }
+  LK.fails++; LK.buf = ''; haptic('warn'); dots(true);
+  if (LK.fails >= 5) { LK.until = Date.now() + 30000; LK.fails = 0; lockText('محاولات كتير، استنى 30 ثانية'); } else lockText('الرقم غلط');
+}
+function hideLock() {
+  const lk = $('#lock'); LK.mode = null;
+  if (!motionOK()) { lk.hidden = true; return; }
+  lk.classList.add('out'); setTimeout(() => { lk.hidden = true; lk.classList.remove('out'); }, 300);
+}
+function verifyPin(fn) { if (!(S.settings.lock && S.settings.lock.hash)) { fn(); return; } showLock('verify', { onDone: fn, onCancel: renderPrefs }); }
+async function bioRegister() {
+  if (!bioOK || !S.settings.lock) throw new Error('unavailable');
+  const cred = await navigator.credentials.create({ publicKey: { challenge: crypto.getRandomValues(new Uint8Array(32)), rp: { name: 'دفتر' }, user: { id: crypto.getRandomValues(new Uint8Array(16)), name: 'daftar', displayName: S.settings.owner || S.settings.biz || 'دفتر' }, pubKeyCredParams: [{ type: 'public-key', alg: -7 }, { type: 'public-key', alg: -257 }], authenticatorSelection: { authenticatorAttachment: 'platform', userVerification: 'required', residentKey: 'discouraged' }, timeout: 60000, attestation: 'none' } });
+  S.settings.lock.bioId = b64(cred.rawId);
+}
+async function bioUnlock() {
+  try {
+    await navigator.credentials.get({ publicKey: { challenge: crypto.getRandomValues(new Uint8Array(32)), allowCredentials: [{ type: 'public-key', id: unb64(S.settings.lock.bioId) }], userVerification: 'required', timeout: 60000 } });
+    const done = LK.onDone; hideLock(); haptic('success'); if (done) done();
+  } catch (e) { lockText('مقدرتش أتأكد بالبصمة، استخدم الرقم السري'); }
+}
+document.addEventListener('visibilitychange', () => {
+  const L = S.settings.lock;
+  if (document.visibilityState === 'hidden') { hiddenAt = Date.now(); if (S.settings.blurBg && booted) root.classList.add('shielded'); }
+  else {
+    if (L && L.hash && hiddenAt && Date.now() - hiddenAt >= (+S.settings.autoLock || 0) * 60000 && $('#lock').hidden) showLock('unlock');
+    root.classList.remove('shielded');
+  }
+});
+
+/* =========================================================
+   Onboarding carousel
+   ========================================================= */
+let onbIdx = 0;
+function showOnboarding() {
+  const o = $('#onb'); o.hidden = false; root.classList.remove('onboarded');
+  $('#oBiz').value = S.settings.biz || ''; $('#oCur').value = S.settings.cur; $('#oOwner').value = S.settings.owner || '';
+  $$('[data-illo]', o).forEach(w => { w.innerHTML = illo(w.dataset.illo); });
+  const slides = $$('.slide', o);
+  $('#onbDots').innerHTML = slides.map((s, i) => `<button type="button" role="tab" aria-selected="${i === 0}" aria-label="الشريحة ${i + 1}" data-dot="${i}"></button>`).join('');
+  const c = $('#carousel'); c.scrollLeft = 0; setSlide(0);
+  if (isDesk()) setTimeout(() => $('#onbNext').focus({ preventScroll: true }), 100);
+}
+function setSlide(i) {
+  onbIdx = i;
+  $$('#onb .slide').forEach((s, k) => s.classList.toggle('on', k === i));
+  $$('#onbDots [data-dot]').forEach((d, k) => d.setAttribute('aria-selected', String(k === i)));
+  const last = i >= 3; $('#onbNext').hidden = last; $('#onbSkip').hidden = last;
+}
+function goSlide(i) {
+  const s = $$('#onb .slide')[i]; if (!s) return;
+  s.scrollIntoView({ behavior: motionOK() ? 'smooth' : 'auto', block: 'nearest', inline: 'center' });
+  setSlide(i); haptic('tick');
+  if (i === 3) setTimeout(() => $('#oBiz').focus({ preventScroll: true }), motionOK() ? 450 : 0);
+}
+$('#carousel').addEventListener('scroll', () => { const c = $('#carousel'); const i = Math.round(Math.abs(c.scrollLeft) / Math.max(1, c.clientWidth)); if (i !== onbIdx) setSlide(Math.min(3, i)); }, { passive: true });
+$('#onbNext').addEventListener('click', () => goSlide(Math.min(3, onbIdx + 1)));
+$('#onbSkip').addEventListener('click', () => goSlide(3));
+$('#onbDots').addEventListener('click', e => { const d = e.target.closest('[data-dot]'); if (d) goSlide(+d.dataset.dot); });
+$('#onb').addEventListener('keydown', e => { if (e.target.closest('input,select')) return; if (e.key === 'ArrowLeft') goSlide(Math.min(3, onbIdx + 1)); if (e.key === 'ArrowRight') goSlide(Math.max(0, onbIdx - 1)); });
+function finishOnb(sample) {
+  S.settings.biz = $('#oBiz').value.trim() || (sample ? 'محل النور للأدوات المنزلية' : 'نشاطي');
+  S.settings.owner = $('#oOwner').value.trim(); S.settings.cur = $('#oCur').value; S.settings.onboarded = true;
+  if (sample) loadSample(); else { save(true); renderChat(); refreshAll(); }
+  writePre();
+  const o = $('#onb');
+  const done = () => { o.hidden = true; o.style.opacity = ''; o.style.transform = ''; o.style.transition = ''; };
+  if (motionOK()) { o.style.transition = 'opacity .35s ease, transform .45s var(--ease-out)'; o.style.opacity = '0'; o.style.transform = 'scale(1.03)'; setTimeout(done, 360); } else done();
+  try { navigator.storage?.persist?.(); } catch (e) { /* ignore */ }
+  haptic('success');
+  if (isDesk()) setView(S.ui.wview || 'analytics', { noHash: true, force: true, instant: true }); else setView('chat', { force: true, instant: true });
+  setTimeout(() => input.focus({ preventScroll: true }), 400);
+}
+$('#oSample').addEventListener('click', () => finishOnb(true));
+$('#oEmpty').addEventListener('click', () => finishOnb(false));
+$('#onbForm').addEventListener('submit', e => { e.preventDefault(); finishOnb(false); });
+
+/* =========================================================
+   Journal gestures: swipe to edit/delete, long-press menu
+   ========================================================= */
+function jeHTML(e) {
+  const t = lineTotals(e.lines), bad = Math.abs(t.d - t.c) > 0.01;
+  const rows = [...e.lines.filter(l => l.debit > 0), ...e.lines.filter(l => l.credit > 0)];
+  return `<div class="je-wrap" data-id="${esc(e.id)}"><div class="je-actions"><button type="button" class="a-edit" data-jact="edit" tabindex="-1">${ic('edit')}تعديل</button><button type="button" class="a-del" data-jact="del" tabindex="-1">${ic('trash')}حذف</button></div>
+  <article class="je${bad ? ' unbal' : ''}" data-id="${esc(e.id)}">
+    <div class="je-h"><bdi class="je-id mono">${esc(e.id)}</bdi><div class="je-t"><h3>${esc(e.description)}</h3><div class="m"><span>${esc(fmtDate(e.date))}</span>${e.reference ? `<span>مرجع: <bdi>${esc(e.reference)}</bdi></span>` : ''}${e.note ? `<span class="note-q">«${esc(e.note)}»</span>` : ''}${bad ? `<span class="status bad">غير متوازن</span>` : ''}</div></div><span class="je-amt">${M(t.d)}</span></div>
+    <div class="je-b scroll-x"><table class="tbl"><thead><tr><th>الحساب</th><th class="n">مدين</th><th class="n">دائن</th></tr></thead><tbody>
+      ${rows.map(l => `<tr><td class="${l.credit > 0 ? 'cr-acc' : ''}">${l.credit > 0 ? 'إلى ح/ ' : 'من ح/ '}${esc(l.account)}<span class="typechip">${TYPE_AR[l.type] || ''}</span></td><td class="n">${l.debit ? money(l.debit) : ''}</td><td class="n">${l.credit ? money(l.credit) : ''}</td></tr>`).join('')}
+    </tbody></table></div>
+    <div class="je-foot"><span class="src">${ic(e.source === 'ocr' ? 'image' : e.source === 'import' ? 'sheet' : e.source === 'opening' ? 'book' : 'cpu')}${SRC_AR[e.source] || (e.source === 'opening' ? 'رصيد افتتاحي' : '')}</span><button type="button" class="btn sm ghost" data-jact="menu" aria-label="خيارات ${esc(e.id)}">${ic('more')}</button><button type="button" class="btn sm" data-jact="edit">${ic('edit')}تعديل</button><button type="button" class="btn sm danger" data-jact="del">${ic('trash')}حذف</button></div>
+  </article></div>`;
+}
+const jList = $('#jList');
+let openRow = null;
+function closeRow(w) { if (!w) return; w.classList.remove('open'); const je = $('.je', w); if (je) je.style.transform = ''; if (openRow === w) openRow = null; }
+jList.addEventListener('click', e => {
+  if (e.target.closest('#jMore')) { jLimit += 40; renderJournal(); return; }
+  const b = e.target.closest('[data-jact]'); if (!b) { if (openRow && !e.target.closest('.je-actions')) closeRow(openRow); return; }
+  const id = b.closest('.je-wrap').dataset.id, act = b.dataset.jact;
+  if (act === 'edit') { closeRow(openRow); editEntry(id); }
+  else if (act === 'del') deleteEntry(id, b.closest('.je-wrap'));
+  else if (act === 'menu') entryMenu(id);
+});
+jList.addEventListener('contextmenu', e => { const w = e.target.closest('.je-wrap'); if (!w) return; e.preventDefault(); if (sw) { clearTimeout(sw.lp); if (sw.mode === 'menu') return; sw.mode = 'menu'; } if (!dlg.open) entryMenu(w.dataset.id); });
+let sw = null;
+jList.addEventListener('pointerdown', e => {
+  const w = e.target.closest('.je-wrap'); if (!w || e.target.closest('button,a,input')) return;
+  if (openRow && openRow !== w) closeRow(openRow);
+  sw = { w, x0: e.clientX, y0: e.clientY, dx: 0, base: w.classList.contains('open') ? 156 : 0, mode: null, t: e.pointerType };
+  sw.lp = setTimeout(() => { if (sw && !sw.mode) { sw.mode = 'menu'; $('.je', w).classList.add('pressed'); haptic('success'); setTimeout(() => $('.je', w)?.classList.remove('pressed'), 160); entryMenu(w.dataset.id); } }, 520);
+});
+jList.addEventListener('pointermove', e => {
+  if (!sw) return;
+  const dx = e.clientX - sw.x0, dy = e.clientY - sw.y0;
+  if (!sw.mode) { if (Math.abs(dx) > 8 || Math.abs(dy) > 8) { clearTimeout(sw.lp); sw.mode = sw.t !== 'mouse' && Math.abs(dx) > Math.abs(dy) * 1.2 ? 'swipe' : 'scroll'; if (sw.mode === 'swipe') sw.w.classList.add('swiping'); } }
+  if (sw.mode !== 'swipe') return;
+  let x = Math.max(0, sw.base + dx); if (x > 156) x = 156 + (x - 156) * .3;
+  sw.dx = x; $('.je', sw.w).style.transform = `translateX(${x}px)`;
+});
+const swEnd = () => {
+  if (!sw) return; clearTimeout(sw.lp);
+  if (sw.mode === 'swipe') {
+    const w = sw.w; w.classList.remove('swiping');
+    if (sw.dx > 230) { deleteEntry(w.dataset.id, w); }
+    else if (sw.dx > 60) { w.classList.add('open'); $('.je', w).style.transform = 'translateX(156px)'; openRow = w; haptic('tick'); }
+    else closeRow(w);
+  }
+  sw = null;
+};
+jList.addEventListener('pointerup', swEnd); jList.addEventListener('pointercancel', swEnd);
+function deleteEntry(id, wrap) {
+  const i = S.entries.findIndex(x => x.id === id); if (i < 0) return;
+  const [gone] = S.entries.splice(i, 1); invalidate(); save(); haptic('warn');
+  const after = () => { refreshAll(); renderChatStamps(); };
+  if (wrap && motionOK()) { wrap.classList.add('removing'); setTimeout(after, 300); } else after();
+  toast(`اتحذف ${gone.id} · ${gone.description}`, { title: 'القيد اتحذف', icon: 'trash', ms: 6500, action: { label: 'تراجع', fn: () => { S.entries.push(gone); invalidate(); save(); refreshAll(); renderChatStamps(); } } });
+}
+function entryText(e) { return `${e.id} · ${e.date} · ${e.description}\n` + e.lines.map(l => `${l.debit ? 'من ح/ ' : '   إلى ح/ '}${l.account}  ${money(l.debit || l.credit)}`).join('\n'); }
+function entryMenu(id) {
+  const e = entryById(id); if (!e) return;
+  openDialog({ title: `${e.id} · ${e.description}`, body: `<div class="list menu-list">${actRow('m-edit', 'blue', 'edit', 'تعديل القيد')}${actRow('m-dup', 'indigo', 'copy', 'تكرار القيد', 'نسخة بتاريخ النهارده في المحادثة')}${actRow('m-copy', 'gray', 'copy', 'نسخ كنص')}${actRow('m-ledger', 'teal', 'ledger', 'افتح الحساب الأول في الأستاذ')}<button type="button" class="set-row danger" data-act="m-del">حذف القيد</button></div>`,
+    onMount: d => {
+      $('.menu-list', d).addEventListener('click', async ev => {
+        const a = ev.target.closest('[data-act]'); if (!a) return; const k = a.dataset.act;
+        if (k === 'm-edit') { editEntry(id); return; }
+        d.close();
+        if (k === 'm-del') deleteEntry(id, jList.querySelector(`.je-wrap[data-id="${id}"]`));
+        if (k === 'm-dup') duplicateEntry(id);
+        if (k === 'm-copy') { try { await navigator.clipboard.writeText(entryText(e)); toast('القيد اتنسخ', { icon: 'copy' }); } catch (x) { toast('النسخ مش متاح هنا', { type: 'err' }); } }
+        if (k === 'm-ledger') { S.ui.lAcc = e.lines[0].account; save(); setView('ledger'); }
+      });
+    } });
+}
+function duplicateEntry(id) {
+  const e = entryById(id); if (!e) return;
+  const d = draftOf(e); d.date = today(); d.explanation = `نسخة من ${e.id}. راجع المبالغ والتاريخ قبل الحفظ.`;
+  const m = pushBot({ kind: 'entries', text: `تكرار القيد ${e.id}:`, proposals: [{ draft: d, status: 'pending', src: e.note || e.description, orig: e.lines.filter(l => !l.is_cash).map(l => l.account), source: e.source === 'opening' ? 'manual' : e.source }] });
+  save(); setView('chat'); if (isDesk()) { msgsEl.insertAdjacentHTML('beforeend', msgHTML(m)); } else renderChat();
+  msgsEl.querySelector(`.msg[data-id="${m.id}"]`)?.classList.add('enter'); fillIcons(msgsEl); scrollChat();
+}
+function editEntry(id) {
+  const e = entryById(id); if (!e) return;
+  const tm = { id: 'ed', proposals: [{ draft: draftOf(e), status: 'pending' }] }; const d = tm.proposals[0].draft;
+  openDialog({ title: `تعديل ${e.id}`, wide: true, body: slipHTML(tm, 0).replace('<span class="slip-no">قيد مقترح</span>', `<span class="slip-no">${esc(e.id)}</span>`).replace('>تجاهل<', '>إلغاء<'),
+    onMount: dd => {
+      const box = $('.slip', dd);
+      const lineBox = () => $('.lines', box);
+      box.addEventListener('input', ev => {
+        const f = ev.target.dataset.f; if (!f) return;
+        if (['date', 'reference', 'description'].includes(f)) { d[f] = ev.target.value; return; }
+        const row = ev.target.closest('.lrow'); const l = d.lines[+row.dataset.li]; if (!l) return;
+        if (f === 'type') { l.type = ev.target.value; l.typeSet = true; return; }
+        l[f] = ev.target.value;
+        if ((f === 'debit' || f === 'credit') && toNum(ev.target.value) > 0) { const o = f === 'debit' ? 'credit' : 'debit'; if (l[o]) { l[o] = ''; row.querySelector(`[data-f="${o}"]`).value = ''; } }
+        updateTotals(box, d);
+      });
+      box.addEventListener('change', ev => { if (ev.target.dataset.f !== 'account') return; const row = ev.target.closest('.lrow'); const l = d.lines[+row.dataset.li]; const c = canonicalAccount(ev.target.value); l.account = c; ev.target.value = c; if (!l.typeSet) l.type = classify(c); row.querySelector('.tags').innerHTML = (c ? typeTag(c, l.type, true, row.dataset.li) : '') + (c && isCashAcc(c, l.type) ? '<span class="cf">نقدية</span>' : ''); });
+      const relines = () => { lineBox().innerHTML = d.lines.map((l, li) => lineHTML(l, li, 'ed', 0)).join('') + `<button type="button" class="addline" data-act="addline">${ic('plus')}سطر جديد</button>`; updateTotals(box, d); };
+      box.addEventListener('click', ev => {
+        const b = ev.target.closest('[data-act]'); if (!b) return; const a = b.dataset.act;
+        if (a === 'addline') { d.lines.push({ account: '', type: 'expense', debit: '', credit: '' }); relines(); }
+        else if (a === 'rmline') { if (d.lines.length <= 2) { toast('القيد لازم يكون فيه سطرين على الأقل', { type: 'err' }); return; } d.lines.splice(+b.closest('.lrow').dataset.li, 1); relines(); }
+        else if (a === 'dismiss') dd.close();
+        else if (a === 'save') {
+          for (const l of d.lines) if (l.typeSet && l.account && !STD_TYPE.has(l.account)) S.accounts[l.account] = l.type;
+          invalidate();
+          const n = normalize({ ...d, lines: d.lines.filter(l => l.account && (toNum(l.debit) || toNum(l.credit))) }, { source: e.source });
+          if (!n.ok) { toast(`القيد مش متوازن، الفرق ${money(Math.abs(n.diff))}`, { type: 'err' }); return; }
+          Object.assign(e, { date: n.date, description: n.description, reference: n.reference, lines: n.lines });
+          for (const l of n.lines) if (!STD_TYPE.has(l.account) && !S.accounts[l.account]) S.accounts[l.account] = l.type;
+          invalidate(); save(); dd.close(); refreshAll(); renderChatStamps(); haptic('success'); sound('success'); toast(`اتعدّل ${e.id}`, { title: 'القيد اتعدّل', icon: 'edit' });
+        }
+      });
+    } });
+}
+
+/* ---------- boot extras ---------- */
+function afterBoot() {
+  // indicators
+  const tb = $('#tabbar'); if (tb && !$('.tab-ind', tb)) tb.insertAdjacentHTML('afterbegin', '<span class="tab-ind" aria-hidden="true"></span>');
+  const rn = $('#railNav'); if (rn && !$('.rail-ind', rn)) rn.insertAdjacentHTML('afterbegin', '<span class="rail-ind" aria-hidden="true"></span>');
+  root.classList.add('no-anim'); moveInd(); requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove('no-anim')));
+  mqDesk.addEventListener('change', () => { root.classList.add('no-anim'); moveInd(); requestAnimationFrame(() => root.classList.remove('no-anim')); });
+  paintAvatars(); checkNudge(); if (nudgeHTML) renderChat();
+  updateScrolled();
+  // splash
+  const sp = $('#splash');
+  if (sp) { if (!motionOK()) sp.remove(); else setTimeout(() => { sp.classList.add('out'); setTimeout(() => sp.remove(), 220); }, Math.max(0, 640 - (performance.now() - T0))); }
+  // lock
+  if (S.settings.lock && S.settings.lock.hash) showLock('unlock'); else root.classList.remove('locked-pre');
+  sysReduce.addEventListener('change', () => { if (S.ui.wview === 'prefs') renderPrefs(); });
+  booted = true;
+}
+
 window.__daftar = { parseLocal, normalize, readInvoice, invoiceSentence, deriveKeyword, get S() { return S; }, today, addDays, send: t => send(t) };
 boot();
 })();
